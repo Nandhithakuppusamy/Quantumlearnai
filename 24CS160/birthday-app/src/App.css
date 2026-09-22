@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+
+  background: linear-gradient(
+    135deg,
+    #1b1038,
+    #3d1766,
+    #741b75
+  );
+}
+
+.birthday-card {
+  width: 440px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 24px;
+  text-align: center;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(211, 105, 255, 0.25);
+}
+
+.icon {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f4e5ff;
+  border-radius: 50%;
+  font-size: 38px;
+}
+
+h1 {
+  margin: 5px 0;
+  color: #28113f;
+  font-size: 30px;
+}
+
+.subtitle {
+  color: #777080;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #35164d;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 13px 15px;
+
+  border: 1.5px solid #d8c8df;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+
+  background: #fcfaff;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #9b4dcc;
+  box-shadow: 0 0 0 3px rgba(155, 77, 204, 0.12);
+}
+
+textarea {
+  height: 110px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #8e44ad,
+    #c44bdc
+  );
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(142, 68, 173, 0.35);
+}
+
+.greeting-box {
+  margin-top: 25px;
+  padding: 22px;
+
+  background: linear-gradient(
+    135deg,
+    #fff5ff,
+    #f3e8ff
+  );
+
+  border: 1px solid #dcb5ed;
+  border-radius: 14px;
+
+  animation: appear 0.4s ease;
+}
+
+.greeting-box span {
+  font-size: 28px;
+}
+
+.greeting-box h2 {
+  margin: 8px 0;
+  color: #6b238e;
+  font-size: 18px;
+}
+
+.greeting-box p {
+  margin: 0;
+  color: #493650;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,39 +1,44 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { AppProvider } from './context/AppContext';
-import Layout from './components/Layout/Layout';
+import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
-import Products from './pages/Products';
-import Billing from './pages/Billing';
-import SalesHistory from './pages/SalesHistory';
-import StockLogs from './pages/StockLogs';
+import QuantumLab from './pages/QuantumLab';
+import Algorithms from './pages/Algorithms';
+import AlgorithmDetail from './pages/AlgorithmDetail';
+import Quiz from './pages/Quiz';
+import Progress from './pages/Progress';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 
 export const App = () => {
   return (
-    <AppProvider>
+    <>
       <Toaster
         position="top-right"
         toastOptions={{
-          duration: 3000,
+          duration: 3500,
           style: {
-            background: '#1e293b',
-            color: '#fff',
+            background: 'rgba(15, 23, 42, 0.95)',
+            color: '#f8fafc',
+            border: '1px solid rgba(6, 182, 212, 0.3)',
+            backdropFilter: 'blur(12px)',
             fontSize: '13px',
-            borderRadius: '12px',
-            padding: '12px 16px',
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+            fontWeight: 500,
+            borderRadius: '14px',
+            padding: '12px 18px',
+            boxShadow: '0 20px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(6, 182, 212, 0.2)'
           },
           success: {
             iconTheme: {
-              primary: '#10b981',
-              secondary: '#fff'
+              primary: '#06b6d4',
+              secondary: '#070a12'
             }
           },
           error: {
             iconTheme: {
-              primary: '#ef4444',
-              secondary: '#fff'
+              primary: '#f43f5e',
+              secondary: '#070a12'
             }
           }
         }}
@@ -42,15 +47,18 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="products" element={<Products />} />
-            <Route path="billing" element={<Billing />} />
-            <Route path="sales" element={<SalesHistory />} />
-            <Route path="stock-logs" element={<StockLogs />} />
+            <Route path="lab" element={<QuantumLab />} />
+            <Route path="algorithms" element={<Algorithms />} />
+            <Route path="algorithms/:id" element={<AlgorithmDetail />} />
+            <Route path="quiz" element={<Quiz />} />
+            <Route path="progress" element={<Progress />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </AppProvider>
+    </>
   );
 };
 

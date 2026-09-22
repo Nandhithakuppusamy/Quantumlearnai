@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Styled Todo App</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel for JSX support -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function TodoApp() {
+      const [tasks, setTasks] = React.useState([]);
+      const [input, setInput] = React.useState("");
+
+      function addTask() {
+        if (input.trim()) {
+          setTasks([...tasks, input]);
+          setInput("");
+        }
+      }
+
+      const containerStyle = {
+        fontFamily: "Arial, sans-serif",
+        maxWidth: "400px",
+        margin: "40px auto",
+        padding: "20px",
+        border: "2px solid #4CAF50",
+        borderRadius: "8px",
+        backgroundColor: "#f9fff9",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+      };
+
+      const inputStyle = {
+        padding: "8px",
+        marginRight: "8px",
+        border: "1px solid #ccc",
+        borderRadius: "4px"
+      };
+
+      const buttonStyle = {
+        padding: "8px 12px",
+        backgroundColor: "#4CAF50",
+        color: "white",
+        border: "none",
+        borderRadius: "4px",
+        cursor: "pointer"
+      };
+
+      const listStyle = {
+        marginTop: "15px",
+        paddingLeft: "20px"
+      };
+
+      return (
+        <div style={containerStyle}>
+          <h2 style={{color:"#4CAF50"}}>Todo List</h2>
+          <input
+            style={inputStyle}
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            placeholder="Enter a task"
+          />
+          <button style={buttonStyle} onClick={addTask}>Add</button>
+          <ul style={listStyle}>
+            {tasks.map((t, i) => (
+              <li key={i} style={{marginBottom:"6px"}}>{t}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<TodoApp />);
+  </script>
+</body>
+</html>

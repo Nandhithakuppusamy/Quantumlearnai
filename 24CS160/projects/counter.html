@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enhanced Counter App</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Counter() {
+      const [count, setCount] = React.useState(0);
+      const [step, setStep] = React.useState(1);
+
+      const boxStyle = {
+        fontFamily: "Arial, sans-serif",
+        textAlign: "center",
+        margin: "40px auto",
+        padding: "20px",
+        width: "300px",
+        border: "2px solid #2196F3",
+        borderRadius: "8px",
+        backgroundColor: "#f0f8ff",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+      };
+
+      const buttonStyle = {
+        padding: "10px 15px",
+        margin: "5px",
+        border: "none",
+        borderRadius: "4px",
+        cursor: "pointer",
+        fontSize: "16px"
+      };
+
+      return (
+        <div style={boxStyle}>
+          <h2 style={{color:"#2196F3"}}>Counter: {count}</h2>
+
+          <div>
+            <button style={{...buttonStyle, backgroundColor:"#4CAF50", color:"white"}} onClick={() => setCount(count + step)}>+{step}</button>
+            <button style={{...buttonStyle, backgroundColor:"#f44336", color:"white"}} onClick={() => setCount(count - step)}>-{step}</button>
+            <button style={{...buttonStyle, backgroundColor:"#9C27B0", color:"white"}} onClick={() => setCount(0)}>Reset</button>
+          </div>
+
+          <div style={{marginTop:"15px"}}>
+            <label>Step size: </label>
+            <input
+              type="number"
+              value={step}
+              onChange={e => setStep(Number(e.target.value))}
+              style={{padding:"5px", width:"60px"}}
+            />
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Counter />);
+  </script>
+</body>
+</html>

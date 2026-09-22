@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React Quiz App</title>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Quiz() {
+      const questions = [
+        { q: "Capital of India?", options: ["Delhi", "Mumbai"], answer: "Delhi" },
+        { q: "Largest planet?", options: ["Earth", "Jupiter"], answer: "Jupiter" },
+        { q: "2 + 2 = ?", options: ["3", "4"], answer: "4" },
+        { q: "React is a ___?", options: ["Library", "Language"], answer: "Library" }
+      ];
+
+      const [current, setCurrent] = React.useState(0);
+      const [score, setScore] = React.useState(0);
+      const [finished, setFinished] = React.useState(false);
+
+      function handleAnswer(option) {
+        if (option === questions[current].answer) {
+          setScore(score + 1);
+        }
+        if (current + 1 < questions.length) {
+          setCurrent(current + 1);
+        } else {
+          setFinished(true);
+        }
+      }
+
+      const cardStyle = {
+        fontFamily: "Arial, sans-serif",
+        margin: "40px auto",
+        padding: "20px",
+        width: "350px",
+        border: "2px solid #9C27B0",
+        borderRadius: "8px",
+        backgroundColor: "#f3e5f5",
+        textAlign: "center",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+      };
+
+      const buttonStyle = {
+        padding: "10px 15px",
+        margin: "5px",
+        border: "none",
+        borderRadius: "4px",
+        cursor: "pointer",
+        fontSize: "14px"
+      };
+
+      return (
+        <div style={cardStyle}>
+          {!finished ? (
+            <>
+              <h2 style={{color:"#9C27B0"}}>{questions[current].q}</h2>
+              {questions[current].options.map((opt, i) => (
+                <button
+                  key={i}
+                  style={{...buttonStyle, backgroundColor:"#4CAF50", color:"white"}}
+                  onClick={() => handleAnswer(opt)}
+                >
+                  {opt}
+                </button>
+              ))}
+              <p>Question {current+1} of {questions.length}</p>
+            </>
+          ) : (
+            <h3>Your Score: {score}/{questions.length}</h3>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Quiz />);
+  </script>
+</body>
+</html>

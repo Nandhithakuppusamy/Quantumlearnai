@@ -1,0 +1,42 @@
+Count vowels:
+import java.util.Scanner;
+
+class Vowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' ||
+                ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+    }
+}
+title the string:
+import java.util.Scanner;
+
+class CapitalizeWords {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        String result = "";
+
+        String[] words = s.split(" ");
+
+        for (String word : words) {
+            result += Character.toUpperCase(word.charAt(0))
+                    + word.substring(1) + " ";
+        }
+
+        System.out.println(result.trim());
+    }
+}
