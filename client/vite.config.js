@@ -6,6 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: true
+    host: true,
+    allowedHosts: [
+      '.replit.dev',
+      '.replit.app',
+      '.repl.co',
+      process.env.REPLIT_DEV_DOMAIN
+    ].filter(Boolean)
   }
 });
