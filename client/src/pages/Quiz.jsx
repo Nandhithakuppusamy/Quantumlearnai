@@ -82,23 +82,23 @@ export const Quiz = () => {
   return (
     <div className="w-full space-y-8 pb-20">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-800/80">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
             <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
               Interactive Assessment
             </span>
           </div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">Quantum Knowledge Quiz</h1>
-          <p className="text-sm text-slate-300 mt-1">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Quantum Knowledge Quiz</h1>
+          <p className="text-sm sm:text-base text-slate-300 mt-1.5">
             Test your understanding of superposition, entanglement, quantum gates, and algorithms.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="px-3.5 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-purple-400" />
+          <span className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-bold flex items-center gap-2">
+            <Zap className="w-4 h-4 text-purple-400" />
             Current Score: {score} / {QUIZ_QUESTIONS.length}
           </span>
         </div>
@@ -107,12 +107,12 @@ export const Quiz = () => {
       {!isCompleted ? (
         <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-6 relative overflow-hidden">
           {/* Progress bar */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs text-slate-400">
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between text-sm text-slate-400 font-medium">
               <span>Question {currentIndex + 1} of {QUIZ_QUESTIONS.length}</span>
               <span className="font-mono text-cyan-400 font-bold">{progressPercent}% Completed</span>
             </div>
-            <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+            <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full transition-all duration-300"
                 style={{ width: `${((currentIndex + 1) / QUIZ_QUESTIONS.length) * 100}%` }}
@@ -122,18 +122,18 @@ export const Quiz = () => {
 
           {/* Topic Badge */}
           <div className="inline-block">
-            <span className="text-[10px] font-bold uppercase px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+            <span className="text-xs font-bold uppercase px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
               Topic: {currentQ.topic}
             </span>
           </div>
 
           {/* Question Text */}
-          <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
             {currentQ.question}
           </h2>
 
           {/* Options List */}
-          <div className="space-y-3 pt-2">
+          <div className="space-y-3.5 pt-2">
             {currentQ.options.map((option, idx) => {
               const letter = String.fromCharCode(65 + idx); // A, B, C, D
               const isSelected = selectedOption === idx;
@@ -158,12 +158,12 @@ export const Quiz = () => {
                   type="button"
                   onClick={() => handleSelectOption(idx)}
                   disabled={hasAnswered}
-                  className={`w-full p-4 rounded-2xl border text-left transition-all duration-200 flex items-center justify-between group ${optionClasses} ${
+                  className={`w-full p-4 sm:p-5 rounded-2xl border text-left transition-all duration-200 flex items-center justify-between group ${optionClasses} ${
                     !hasAnswered ? 'hover:scale-[1.01] cursor-pointer' : 'cursor-default'
                   }`}
                 >
-                  <div className="flex items-center gap-3.5">
-                    <span className={`w-8 h-8 rounded-xl flex items-center justify-center font-mono text-xs font-bold border transition-colors ${
+                  <div className="flex items-center gap-4">
+                    <span className={`w-9 h-9 rounded-xl flex items-center justify-center font-mono text-sm font-bold border transition-colors flex-shrink-0 ${
                       hasAnswered && isCorrect
                         ? 'bg-emerald-500 text-white border-emerald-400'
                         : hasAnswered && isSelected
@@ -172,14 +172,14 @@ export const Quiz = () => {
                     }`}>
                       {letter}
                     </span>
-                    <span className="text-sm font-medium">{option}</span>
+                    <span className="text-base sm:text-lg font-medium leading-relaxed">{option}</span>
                   </div>
 
                   {hasAnswered && isCorrect && (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-6 h-6 text-emerald-400 flex-shrink-0 ml-3" />
                   )}
                   {hasAnswered && isSelected && !isCorrect && (
-                    <XCircle className="w-5 h-5 text-rose-400 flex-shrink-0" />
+                    <XCircle className="w-6 h-6 text-rose-400 flex-shrink-0 ml-3" />
                   )}
                 </button>
               );
@@ -188,25 +188,25 @@ export const Quiz = () => {
 
           {/* Feedback & Detailed Explanation */}
           {hasAnswered && (
-            <div className={`p-4 rounded-2xl border transition-all ${
+            <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
               selectedOption === currentQ.correctAnswer
                 ? 'bg-emerald-950/30 border-emerald-500/30 text-emerald-200'
                 : 'bg-rose-950/30 border-rose-500/30 text-rose-200'
             }`}>
-              <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-1">
+              <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider mb-1.5">
                 {selectedOption === currentQ.correctAnswer ? (
                   <>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                     Correct Answer!
                   </>
                 ) : (
                   <>
-                    <XCircle className="w-4 h-4 text-rose-400" />
+                    <XCircle className="w-5 h-5 text-rose-400" />
                     Incorrect Option
                   </>
                 )}
               </div>
-              <p className="text-xs leading-relaxed text-slate-300 mt-1.5">
+              <p className="text-sm sm:text-base leading-relaxed text-slate-200 mt-2">
                 {currentQ.explanation}
               </p>
             </div>
@@ -214,11 +214,11 @@ export const Quiz = () => {
 
           {/* Next Button */}
           {hasAnswered && (
-            <div className="flex justify-end pt-2">
+            <div className="flex justify-end pt-3">
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-quantum-cyan transition-all"
+                className="flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-bold uppercase tracking-wider shadow-quantum-cyan transition-all"
               >
                 {currentIndex < QUIZ_QUESTIONS.length - 1 ? 'Next Question' : 'View Final Results'}
                 <ArrowRight className="w-4 h-4" />
@@ -228,37 +228,37 @@ export const Quiz = () => {
         </div>
       ) : (
         /* Quiz Complete Celebration View */
-        <div className="glass-card rounded-3xl p-8 border border-slate-800 text-center space-y-6 relative overflow-hidden">
+        <div className="glass-card rounded-3xl p-8 sm:p-10 border border-slate-800 text-center space-y-6 relative overflow-hidden">
           <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shadow-quantum-cyan">
             <Award className="w-10 h-10" />
           </div>
 
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-cyan-400">
               Quiz Completed
             </span>
-            <h2 className="text-3xl font-extrabold text-white mt-1">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-1.5">
               Final Score: {score} / {QUIZ_QUESTIONS.length}
             </h2>
-            <div className="text-lg font-bold text-purple-400 font-mono mt-1">
+            <div className="text-xl sm:text-2xl font-bold text-purple-400 font-mono mt-1.5">
               {Math.round((score / QUIZ_QUESTIONS.length) * 100)}% Accuracy
             </div>
           </div>
 
           {/* Required Completion Text */}
-          <div className="max-w-md mx-auto p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 text-sm font-medium">
+          <div className="max-w-lg mx-auto p-4 sm:p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 text-base sm:text-lg font-medium leading-relaxed">
             Great work! Your understanding of quantum fundamentals is improving.
           </div>
 
-          <p className="text-xs text-slate-400 max-w-sm mx-auto">
+          <p className="text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
             Your quiz results have been recorded in your student profile and progress tracker.
           </p>
 
-          <div className="flex items-center justify-center gap-3 pt-4">
+          <div className="flex items-center justify-center gap-3.5 pt-4">
             <button
               type="button"
               onClick={handleRestart}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-all border border-slate-700"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-bold transition-all border border-slate-700"
             >
               <RotateCcw className="w-4 h-4" />
               Retake Quiz
@@ -267,7 +267,7 @@ export const Quiz = () => {
             <button
               type="button"
               onClick={() => navigate('/lab')}
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold uppercase tracking-wider shadow-quantum-cyan transition-all"
+              className="flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-bold uppercase tracking-wider shadow-quantum-cyan transition-all"
             >
               <FlaskConical className="w-4 h-4" />
               Practice in Lab

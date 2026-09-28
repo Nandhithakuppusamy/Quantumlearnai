@@ -39,37 +39,37 @@ export const ProbabilityChart = ({
           <div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <span className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
                 Simulation Complete
               </span>
             </div>
-            <h3 className="text-lg font-bold text-white mt-0.5">Measurement Probabilities</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">Measurement Probabilities</h3>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 flex items-center gap-1.5">
-              <Cpu className="w-3 h-3" />
+            <span className="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 flex items-center gap-1.5">
+              <Cpu className="w-4 h-4" />
               Local Quantum Simulation
             </span>
           </div>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-3 gap-3 my-5">
-          <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-[11px] text-slate-400 block">Total Shots</span>
-            <span className="text-lg font-mono font-bold text-white mt-0.5 block">{totalShots || 1000}</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 my-5">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-xs sm:text-sm text-slate-400 block font-medium">Total Shots</span>
+            <span className="text-xl sm:text-2xl font-mono font-bold text-white mt-1 block">{totalShots || 1000}</span>
           </div>
-          <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-[11px] text-slate-400 block">Execution Time</span>
-            <span className="text-lg font-mono font-bold text-cyan-400 mt-0.5 block flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-xs sm:text-sm text-slate-400 block font-medium">Execution Time</span>
+            <span className="text-xl sm:text-2xl font-mono font-bold text-cyan-400 mt-1 block flex items-center gap-1.5">
+              <Clock className="w-4 h-4" />
               {executionTime || '0.02 s'}
             </span>
           </div>
-          <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-[11px] text-slate-400 block">Most Probable</span>
-            <span className="text-lg font-mono font-bold text-emerald-400 mt-0.5 block truncate">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-xs sm:text-sm text-slate-400 block font-medium">Most Probable</span>
+            <span className="text-xl sm:text-2xl font-mono font-bold text-emerald-400 mt-1 block truncate">
               {mostProbableState}
             </span>
           </div>
@@ -82,23 +82,23 @@ export const ProbabilityChart = ({
               <XAxis 
                 dataKey="state" 
                 stroke="#64748b" 
-                tick={{ fill: '#cbd5e1', fontSize: 12, fontFamily: 'monospace' }} 
+                tick={{ fill: '#cbd5e1', fontSize: 13, fontFamily: 'monospace' }} 
               />
               <YAxis 
                 domain={[0, 100]} 
                 unit="%" 
                 stroke="#64748b" 
-                tick={{ fill: '#94a3b8', fontSize: 11 }} 
+                tick={{ fill: '#94a3b8', fontSize: 12 }} 
               />
               <Tooltip 
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="p-2.5 rounded-xl bg-slate-900/95 border border-slate-700 shadow-xl backdrop-blur-md">
-                        <p className="font-mono text-xs font-bold text-cyan-300">Basis State: {data.state}</p>
-                        <p className="text-xs text-white mt-1">Probability: <span className="font-bold">{data.prob}%</span></p>
-                        <p className="text-[11px] text-slate-400">Shots: {data.shots} / {totalShots}</p>
+                      <div className="p-3 rounded-xl bg-slate-900/95 border border-slate-700 shadow-xl backdrop-blur-md">
+                        <p className="font-mono text-sm font-bold text-cyan-300">Basis State: {data.state}</p>
+                        <p className="text-sm text-white mt-1">Probability: <span className="font-bold">{data.prob}%</span></p>
+                        <p className="text-xs text-slate-400 mt-0.5">Shots: {data.shots} / {totalShots}</p>
                       </div>
                     );
                   }
@@ -118,12 +118,12 @@ export const ProbabilityChart = ({
         </div>
 
         {/* Probability Breakdown Badges */}
-        <div className="grid grid-cols-4 gap-2 mt-4 pt-4 border-t border-slate-800">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4 pt-4 border-t border-slate-800">
           {chartData.map((d) => (
-            <div key={d.state} className="text-center p-2 rounded-lg bg-slate-900/50 border border-slate-800/60">
-              <div className="font-mono text-xs text-slate-300 font-semibold">{d.state}</div>
-              <div className="text-sm font-bold text-cyan-400 mt-0.5">{d.prob}%</div>
-              <div className="text-[10px] text-slate-500 font-mono">{d.shots} shots</div>
+            <div key={d.state} className="text-center p-3 rounded-xl bg-slate-900/50 border border-slate-800/60">
+              <div className="font-mono text-sm text-slate-300 font-semibold">{d.state}</div>
+              <div className="text-base sm:text-lg font-bold text-cyan-400 mt-0.5">{d.prob}%</div>
+              <div className="text-xs text-slate-400 font-mono mt-0.5">{d.shots} shots</div>
             </div>
           ))}
         </div>
@@ -133,17 +133,17 @@ export const ProbabilityChart = ({
       <div className="glass-card rounded-2xl p-6 border border-slate-800 relative overflow-hidden">
         <div className="flex items-center gap-2 mb-3">
           <Zap className="w-4 h-4 text-cyan-400" />
-          <h4 className="text-sm font-bold uppercase tracking-wider text-white">Quantum State</h4>
+          <h4 className="text-base font-bold uppercase tracking-wider text-white">Quantum State</h4>
         </div>
 
-        <div className="p-4 rounded-xl bg-slate-950/70 border border-cyan-500/20 font-mono text-cyan-300 text-base md:text-lg font-semibold tracking-wide flex items-center justify-between overflow-x-auto">
+        <div className="p-4 sm:p-5 rounded-xl bg-slate-950/70 border border-cyan-500/20 font-mono text-cyan-300 text-base sm:text-lg lg:text-xl font-bold tracking-wide flex items-center justify-between overflow-x-auto">
           <span>{stateFormula || '|ψ⟩ = (|00⟩ + |11⟩) / √2'}</span>
-          <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/50 font-sans">
+          <span className="text-xs px-3 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/50 font-sans">
             Bra-Ket
           </span>
         </div>
 
-        <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-300 mt-3.5 leading-relaxed">
           {stateExplanation || "This Bell state represents two entangled qubits. Measuring one qubit gives information about the other."}
         </p>
       </div>

@@ -1395,22 +1395,22 @@ export const WebXRQuantumLab = ({
 
       {/* Floating Spatial UI Overlay (For Desktop Mode Preview) */}
       <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-slate-700/80 backdrop-blur-md text-xs font-mono text-cyan-300 pointer-events-auto">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-950/85 border border-slate-700/80 backdrop-blur-md text-sm font-mono text-cyan-300 pointer-events-auto shadow-lg">
+          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
           <span>Active Gate: <strong className="text-white">{selectedGate}</strong></span>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 border border-purple-500/40 backdrop-blur-md text-xs font-mono text-purple-200 pointer-events-auto">
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-950/85 border border-purple-500/40 backdrop-blur-md text-sm font-mono text-purple-200 pointer-events-auto shadow-lg">
           <span>Bell State: <strong className="text-white">|Φ⁺⟩ = (|00⟩+|11⟩)/√2</strong></span>
         </div>
       </div>
 
       {/* Subtle Hint Bar at Bottom */}
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] text-slate-400 pointer-events-none">
-        <span className="bg-slate-950/80 px-3 py-1 rounded-lg border border-slate-800">
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-slate-300 pointer-events-none">
+        <span className="bg-slate-950/85 px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-md">
           🎮 Desktop: Left-click + drag to orbit • Right-click to pan • Scroll to zoom • Click 3D objects to interact
         </span>
-        <span className="bg-slate-950/80 px-3 py-1 rounded-lg border border-slate-800 hidden sm:inline">
+        <span className="bg-slate-950/85 px-3.5 py-1.5 rounded-xl border border-slate-800 hidden sm:inline shadow-md">
           🥽 WebXR VR: 6DoF Headset Tracking • Motion Controllers • Hand Tracking
         </span>
       </div>

@@ -33,10 +33,10 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
   return (
     <div className="glass-card rounded-2xl p-6 border border-slate-800 relative overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
         <div className="flex items-center gap-2">
-          <Compass className="w-4 h-4 text-cyan-400" />
-          <h3 className="text-base font-bold text-white">Bloch Sphere Visualization</h3>
+          <Compass className="w-5 h-5 text-cyan-400" />
+          <h3 className="text-lg font-bold text-white">Bloch Sphere Visualization</h3>
         </div>
 
         {/* Qubit Selector Switch */}
@@ -44,7 +44,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
           <button
             type="button"
             onClick={() => onSelectQubit && onSelectQubit(0)}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
               selectedQubit === 0
                 ? 'bg-cyan-500 text-white shadow-quantum-cyan'
                 : 'text-slate-400 hover:text-white'
@@ -55,7 +55,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
           <button
             type="button"
             onClick={() => onSelectQubit && onSelectQubit(1)}
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
               selectedQubit === 1
                 ? 'bg-purple-500 text-white shadow-quantum-purple'
                 : 'text-slate-400 hover:text-white'
@@ -252,7 +252,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
         </svg>
 
         {/* State Coordinates Tag */}
-        <div className="flex items-center gap-3 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-[11px] font-mono text-slate-300">
+        <div className="flex flex-wrap items-center justify-center gap-3 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-800 text-xs sm:text-sm font-mono text-slate-300">
           <span>x: <strong className="text-cyan-400">{currentBloch.x}</strong></span>
           <span>y: <strong className="text-purple-400">{currentBloch.y}</strong></span>
           <span>z: <strong className="text-emerald-400">{currentBloch.z}</strong></span>
@@ -261,7 +261,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
 
         {/* Entangled Mixed State Notice if r < 0.9 */}
         {currentBloch.isEntangled && (
-          <div className="mt-2 text-[11px] text-amber-300/90 bg-amber-500/10 px-3 py-1 rounded-lg border border-amber-500/20 text-center">
+          <div className="mt-2.5 text-xs sm:text-sm text-amber-300/90 bg-amber-500/10 px-3.5 py-1.5 rounded-lg border border-amber-500/20 text-center">
             ✦ Entangled state: reduced density matrix has length r &lt; 1 (mixed state).
           </div>
         )}
@@ -269,11 +269,11 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
 
       {/* Required Explanation Text Below */}
       <div className="mt-4 pt-4 border-t border-slate-800">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 mb-1.5">
-          <Info className="w-3.5 h-3.5 text-cyan-400" />
+        <h4 className="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2 mb-2">
+          <Info className="w-4 h-4 text-cyan-400" />
           Bloch Sphere Explanation
         </h4>
-        <p className="text-xs text-slate-400 leading-relaxed">
+        <p className="text-sm text-slate-300 leading-relaxed">
           The Bloch sphere represents the state of a single qubit. The north pole corresponds to |0⟩ and the south pole corresponds to |1⟩. Points on the equator represent equal superpositions, while the interior represents mixed states produced by quantum entanglement.
         </p>
       </div>

@@ -42,8 +42,8 @@ export const Profile = () => {
         <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/10 via-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-slate-800">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-quantum-cyan flex-shrink-0">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="w-18 h-18 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white text-3xl font-extrabold shadow-quantum-cyan flex-shrink-0">
               {name.charAt(0)}
             </div>
 
@@ -54,83 +54,83 @@ export const Profile = () => {
                     type="text"
                     value={tempName}
                     onChange={(e) => setTempName(e.target.value)}
-                    className="bg-slate-900 border border-cyan-400 rounded-lg px-2.5 py-1 text-base font-bold text-white focus:outline-none"
+                    className="bg-slate-900 border border-cyan-400 rounded-xl px-3 py-1.5 text-lg font-bold text-white focus:outline-none"
                     autoFocus
                   />
-                  <button type="submit" className="text-xs bg-cyan-500 text-white px-3 py-1 rounded-lg font-semibold">
+                  <button type="submit" className="text-sm bg-cyan-500 hover:bg-cyan-400 text-white px-4 py-1.5 rounded-xl font-bold transition-colors">
                     Save
                   </button>
                 </form>
               ) : (
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-extrabold text-white tracking-tight">{name}</h1>
+                <div className="flex items-center gap-2.5">
+                  <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{name}</h1>
                   <button 
                     type="button" 
                     onClick={() => { setTempName(name); setIsEditing(true); }}
-                    className="text-slate-400 hover:text-cyan-400 p-1"
+                    className="text-slate-400 hover:text-cyan-400 p-1.5 rounded-lg hover:bg-slate-800 transition-colors"
                   >
-                    <Edit2 className="w-3.5 h-3.5" />
+                    <Edit2 className="w-4 h-4" />
                   </button>
                 </div>
               )}
 
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+              <div className="flex items-center gap-2.5 mt-1.5">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                   Level: Quantum Explorer
                 </span>
-                <span className="text-xs text-slate-400">SIH 2026 Participant</span>
+                <span className="text-sm text-slate-400">SIH 2026 Participant</span>
               </div>
             </div>
           </div>
 
-          <div className="text-right sm:border-l sm:border-slate-800 sm:pl-6">
-            <span className="text-[11px] text-slate-400 block uppercase font-semibold">Total Quantum XP</span>
-            <span className="text-2xl font-extrabold font-mono text-cyan-400">1,420 Q-XP</span>
+          <div className="text-left sm:text-right sm:border-l sm:border-slate-800 sm:pl-6">
+            <span className="text-xs text-slate-400 block uppercase font-bold tracking-wider">Total Quantum XP</span>
+            <span className="text-2xl sm:text-3xl font-extrabold font-mono text-cyan-400">1,420 Q-XP</span>
           </div>
         </div>
 
         {/* 3 Core Profile Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
-              <Flame className="w-5 h-5" />
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
+            <div className="w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+              <Flame className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs text-slate-400 block">Streak</span>
-              <span className="text-lg font-bold text-white">7 day streak</span>
+              <span className="text-xs sm:text-sm text-slate-400 block font-medium">Streak</span>
+              <span className="text-xl sm:text-2xl font-bold text-white">7 day streak</span>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0">
-              <Binary className="w-5 h-5" />
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
+            <div className="w-11 h-11 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0">
+              <Binary className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs text-slate-400 block">Curriculum</span>
-              <span className="text-lg font-bold text-white">4 algorithms completed</span>
+              <span className="text-xs sm:text-sm text-slate-400 block font-medium">Curriculum</span>
+              <span className="text-xl sm:text-2xl font-bold text-white">4 algorithms completed</span>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
-              <Award className="w-5 h-5" />
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
+            <div className="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+              <Award className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs text-slate-400 block">Accuracy</span>
-              <span className="text-lg font-bold text-white">84% average quiz score</span>
+              <span className="text-xs sm:text-sm text-slate-400 block font-medium">Accuracy</span>
+              <span className="text-xl sm:text-2xl font-bold text-white">84% average quiz score</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Badges Section */}
-      <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-4">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div className="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800 space-y-5">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
           <div>
-            <h2 className="text-base font-bold text-white">Earned Badges & Credentials</h2>
-            <p className="text-xs text-slate-400">Milestones unlocked during your quantum computing studies</p>
+            <h2 className="text-lg font-bold text-white">Earned Badges & Credentials</h2>
+            <p className="text-sm text-slate-400 mt-0.5">Milestones unlocked during your quantum computing studies</p>
           </div>
-          <span className="text-xs font-mono font-bold text-cyan-400">
+          <span className="text-sm font-mono font-bold text-cyan-400">
             {badges.length} Unlocked
           </span>
         </div>
@@ -141,16 +141,16 @@ export const Profile = () => {
             return (
               <div 
                 key={b.title}
-                className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all flex items-start gap-3.5"
+                className="p-4 sm:p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all flex items-start gap-4"
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${b.color}`}>
-                  <Icon className="w-5 h-5" />
+                <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${b.color}`}>
+                  <Icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-white">{b.title}</h3>
-                  <p className="text-[11px] text-slate-400 leading-snug mt-1">{b.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 mt-2 font-medium">
-                    <CheckCircle2 className="w-3 h-3" /> Unlocked
+                  <h3 className="text-sm sm:text-base font-bold text-white">{b.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1.5">{b.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 mt-2.5 font-semibold">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Unlocked
                   </span>
                 </div>
               </div>

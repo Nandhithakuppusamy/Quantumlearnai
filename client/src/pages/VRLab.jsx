@@ -173,12 +173,12 @@ export const VRLab = () => {
   return (
     <div className="space-y-6 pb-16">
       {/* Top Header & VR Launch Controls */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-800/80">
         <div>
           <button
             type="button"
             onClick={() => navigate('/lab')}
-            className="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-cyan-300 mb-3 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-cyan-300 mb-3 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Return to Quantum Lab
           </button>
@@ -196,15 +196,15 @@ export const VRLab = () => {
               WebXR Immersive VR Laboratory
             </span>
           </div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight mt-1 flex items-center gap-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1.5 flex items-center gap-3">
             VR Quantum Lab
             {isInVR && (
-              <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+              <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono font-bold">
                 IMMERSIVE SESSION ACTIVE
               </span>
             )}
           </h1>
-          <p className="text-sm text-slate-300 mt-1">
+          <p className="text-sm sm:text-base text-slate-300 mt-1.5 max-w-3xl">
             Walk inside the virtual quantum laboratory with 6DoF headset tracking, VR controllers, hand tracking, and spatial entanglement.
           </p>
         </div>
@@ -213,7 +213,7 @@ export const VRLab = () => {
         <div className="flex flex-wrap items-center gap-3">
           {/* WebXR Status Pill */}
           <div
-            className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono border ${
+            className={`inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono border ${
               vrSupported
                 ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300'
                 : 'bg-amber-950/40 border-amber-500/40 text-amber-300'
@@ -227,7 +227,7 @@ export const VRLab = () => {
           <button
             type="button"
             onClick={() => setShowVRGuide(true)}
-            className="p-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 transition-colors"
+            className="p-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 transition-colors"
             title="How to connect VR Headset"
           >
             <HelpCircle className="w-4 h-4" />
@@ -237,7 +237,7 @@ export const VRLab = () => {
           <button
             type="button"
             onClick={handleEnterVR}
-            className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs font-extrabold shadow-quantum-cyan tracking-wider uppercase transition-all duration-300 ${
+            className={`inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-extrabold shadow-quantum-cyan tracking-wider uppercase transition-all duration-300 ${
               isInVR
                 ? 'bg-emerald-600 text-white ring-2 ring-emerald-400 animate-pulse'
                 : vrSupported
@@ -253,9 +253,9 @@ export const VRLab = () => {
 
       {/* Mode Clarification Banner */}
       {!vrSupported && (
-        <div className="flex items-start sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs">
-          <div className="flex items-center gap-2.5">
-            <Info className="w-4 h-4 text-amber-400 flex-shrink-0" />
+        <div className="flex items-start sm:items-center justify-between gap-3 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm">
+          <div className="flex items-center gap-3">
+            <Info className="w-5 h-5 text-amber-400 flex-shrink-0" />
             <span>
               <strong>VR headset not detected — Desktop 3D mode.</strong> You can explore the room-scale virtual laboratory using mouse/keyboard preview. Connect a WebXR headset (Meta Quest, Vision Pro, SteamVR) and click <strong>ENTER VR</strong> to step inside!
             </span>
@@ -263,7 +263,7 @@ export const VRLab = () => {
           <button
             type="button"
             onClick={() => setShowVRGuide(true)}
-            className="underline hover:text-white flex-shrink-0 text-xs font-semibold ml-2"
+            className="underline hover:text-white flex-shrink-0 text-xs sm:text-sm font-semibold ml-2"
           >
             Setup Guide
           </button>
@@ -285,36 +285,36 @@ export const VRLab = () => {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
         {/* Left Column: Bell State Demonstration & Circuit Synchronization */}
         <div className="xl:col-span-7 space-y-5">
-          <div className="glass-card rounded-2xl border border-slate-800 p-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-3 border-b border-slate-800/80">
+          <div className="glass-card rounded-2xl border border-slate-800 p-5 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5 pb-3.5 border-b border-slate-800/80">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  <h2 className="text-sm font-bold text-white">Main Demonstration: Bell State (|Φ⁺⟩)</h2>
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <h2 className="text-base sm:text-lg font-bold text-white">Main Demonstration: Bell State (|Φ⁺⟩)</h2>
                 </div>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
                   Spatial circuit running synchronously in WebXR and the Quantum Lab simulator.
                 </p>
               </div>
-              <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-cyan-950/70 border border-cyan-500/30 text-cyan-300">
+              <span className="text-xs sm:text-sm font-mono px-3 py-1.5 rounded-lg bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 font-bold">
                 |ψ⟩ = (|00⟩ + |11⟩) / √2
               </span>
             </div>
 
             {/* Circuit Code Preview */}
-            <pre className="rounded-xl bg-[#050812] border border-slate-800 p-4 overflow-x-auto text-xs font-mono leading-6 text-cyan-200">
+            <pre className="rounded-xl bg-[#050812] border border-slate-800 p-4 sm:p-5 overflow-x-auto text-sm font-mono leading-relaxed text-cyan-200">
               {circuitToCode(circuit)}
             </pre>
 
             {/* Quick Gate Modifiers */}
-            <div className="flex flex-wrap items-center gap-2 mt-4 pt-3 border-t border-slate-800/60">
-              <span className="text-[11px] font-semibold text-slate-400 mr-1">Quick Add:</span>
+            <div className="flex flex-wrap items-center gap-2.5 mt-4 pt-3.5 border-t border-slate-800/60">
+              <span className="text-xs sm:text-sm font-semibold text-slate-400 mr-1">Quick Add:</span>
               {['H', 'X', 'Y', 'Z', 'CNOT', 'M'].map((gate) => (
                 <button
                   key={gate}
                   type="button"
                   onClick={() => addGate(gate)}
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-cyan-400 hover:text-cyan-300 hover:bg-slate-750 transition-colors"
+                  className="px-3.5 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm font-mono font-bold text-slate-200 hover:border-cyan-400 hover:text-cyan-300 hover:bg-slate-750 transition-colors"
                 >
                   + {gate}
                 </button>
@@ -323,9 +323,9 @@ export const VRLab = () => {
               <button
                 type="button"
                 onClick={resetBellCircuit}
-                className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-950/70 border border-indigo-500/40 text-xs text-indigo-200 hover:text-white hover:bg-indigo-900/80 transition-colors"
+                className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-950/70 border border-indigo-500/40 text-sm font-semibold text-indigo-200 hover:text-white hover:bg-indigo-900/80 transition-colors"
               >
-                <RotateCcw className="w-3.5 h-3.5" /> Reset Bell State
+                <RotateCcw className="w-4 h-4" /> Reset Bell State
               </button>
             </div>
           </div>
@@ -334,25 +334,25 @@ export const VRLab = () => {
         {/* Right Column: Measurement Results & AI Tutor Narration */}
         <div className="xl:col-span-5 space-y-5">
           {/* Measurement Collapse Results */}
-          <div className="glass-card rounded-2xl border border-slate-800 p-5">
+          <div className="glass-card rounded-2xl border border-slate-800 p-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-amber-300" />
-                <h2 className="text-sm font-bold text-white">Measurement Results</h2>
+                <Zap className="w-5 h-5 text-amber-300" />
+                <h2 className="text-base sm:text-lg font-bold text-white">Measurement Results</h2>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+              <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700 font-semibold">
                 Shared with Lab
               </span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3.5">
               {Object.entries(simulationResult.probabilities).map(([state, probability]) => (
                 <div key={state}>
-                  <div className="flex justify-between text-xs mb-1 font-mono">
-                    <span className="text-slate-300">|{state}⟩</span>
+                  <div className="flex justify-between text-sm mb-1.5 font-mono">
+                    <span className="text-slate-200 font-bold">|{state}⟩</span>
                     <span className="font-bold text-cyan-300">{probabilityLabel(probability)}</span>
                   </div>
-                  <div className="h-2.5 rounded-full bg-slate-800 overflow-hidden">
+                  <div className="h-3 rounded-full bg-slate-800 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 transition-all duration-300"
                       style={{ width: `${Math.max(2, probability * 100)}%` }}
@@ -362,7 +362,7 @@ export const VRLab = () => {
               ))}
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed mt-4 pt-3 border-t border-slate-800">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-4 pt-3.5 border-t border-slate-800">
               {simulationResult.probabilities['00'] > 0.4 && simulationResult.probabilities['11'] > 0.4
                 ? '★ Entangled Bell correlation: measuring one qubit instantly projects the second into the identical state (50% |00⟩, 50% |11⟩).'
                 : 'Modify gates in VR or on this workbench, then observe how state transitions affect probability collapse.'}
@@ -370,42 +370,42 @@ export const VRLab = () => {
           </div>
 
           {/* In-VR AI Tutor Card */}
-          <div className="glass-card rounded-2xl border border-purple-500/20 p-5">
-            <div className="flex items-center justify-between mb-3">
+          <div className="glass-card rounded-2xl border border-purple-500/20 p-5 sm:p-6">
+            <div className="flex items-center justify-between mb-3.5">
               <div className="flex items-center gap-2">
-                <Bot className="w-4 h-4 text-purple-300" />
-                <h2 className="text-sm font-bold text-white">AI Tutor in VR</h2>
+                <Bot className="w-5 h-5 text-purple-300" />
+                <h2 className="text-base sm:text-lg font-bold text-white">AI Tutor in VR</h2>
               </div>
               <button
                 type="button"
                 onClick={explainBellState}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-200 text-xs hover:bg-purple-500/30 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-200 text-xs sm:text-sm font-semibold hover:bg-purple-500/30 transition-colors"
               >
-                <Volume2 className="w-3.5 h-3.5" /> Read Aloud
+                <Volume2 className="w-4 h-4" /> Read Aloud
               </button>
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-300 leading-relaxed">
               {isExplaining
                 ? 'Speaking AI explanation: Hadamard creates superposition (|0⟩+|1⟩)/√2 on q₀. CNOT entangles q₀ and q₁ so measurement yields strictly correlated outcomes.'
                 : 'Inside VR, point your controller laser at the 3D AI Tutor holographic board to ask questions, explore superposition, and hear voice explanations.'}
             </p>
 
-            <div className="grid grid-cols-2 gap-2 mt-4">
+            <div className="grid grid-cols-2 gap-2.5 mt-4">
               <button
                 type="button"
                 onClick={explainBellState}
-                className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-200 text-xs font-bold hover:bg-purple-500/25 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-200 text-xs sm:text-sm font-bold hover:bg-purple-500/25 transition-colors"
               >
-                <Sparkles className="w-3.5 h-3.5" /> Explain Bell State
+                <Sparkles className="w-4 h-4" /> Explain Bell State
               </button>
               <button
                 type="button"
                 onClick={runExperiment}
                 disabled={isSimulating}
-                className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold shadow-quantum-cyan disabled:opacity-60 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs sm:text-sm font-bold shadow-quantum-cyan disabled:opacity-60 transition-colors"
               >
-                <Play className="w-3.5 h-3.5 fill-white" /> {isSimulating ? 'Simulating...' : 'Simulate'}
+                <Play className="w-4 h-4 fill-white" /> {isSimulating ? 'Simulating...' : 'Simulate'}
               </button>
             </div>
           </div>
@@ -415,45 +415,45 @@ export const VRLab = () => {
       {/* VR Connection & Setup Guide Modal */}
       {showVRGuide && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="relative w-full max-w-lg rounded-3xl bg-[#090e1f] border border-cyan-500/40 p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <Glasses className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-base font-extrabold text-white">How to Step into WebXR VR</h3>
+          <div className="relative w-full max-w-lg rounded-3xl bg-[#090e1f] border border-cyan-500/40 p-6 sm:p-7 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
+              <div className="flex items-center gap-2.5">
+                <Glasses className="w-6 h-6 text-cyan-400" />
+                <h3 className="text-lg font-extrabold text-white">How to Step into WebXR VR</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setShowVRGuide(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {vrError && (
-              <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-200 text-xs leading-relaxed">
+              <div className="p-3.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-200 text-xs sm:text-sm leading-relaxed">
                 <strong>Hardware notice:</strong> {vrError}
               </div>
             )}
 
-            <div className="space-y-3 text-xs text-slate-300">
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <strong className="block text-cyan-300 mb-1">1. Meta Quest 2 / 3 / Pro</strong>
+            <div className="space-y-3.5 text-xs sm:text-sm text-slate-300">
+              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <strong className="block text-cyan-300 mb-1 text-sm sm:text-base">1. Meta Quest 2 / 3 / Pro</strong>
                 <p>Open the native <strong>Meta Quest Browser</strong> inside your headset, navigate to this application URL, and click <strong>ENTER VR</strong>.</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <strong className="block text-purple-300 mb-1">2. Apple Vision Pro</strong>
+              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <strong className="block text-purple-300 mb-1 text-sm sm:text-base">2. Apple Vision Pro</strong>
                 <p>In Safari Settings on visionOS, ensure <strong>WebXR</strong> is enabled in Advanced Settings, then click <strong>ENTER VR</strong>.</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <strong className="block text-emerald-300 mb-1">3. PCVR (SteamVR, Vive, Oculus Rift)</strong>
+              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <strong className="block text-emerald-300 mb-1 text-sm sm:text-base">3. PCVR (SteamVR, Vive, Oculus Rift)</strong>
                 <p>Launch SteamVR or Oculus Link, open this app in Google Chrome or Microsoft Edge, and click <strong>ENTER VR</strong>.</p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <strong className="block text-amber-300 mb-1">4. Desktop Developer Testing</strong>
+              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <strong className="block text-amber-300 mb-1 text-sm sm:text-base">4. Desktop Developer Testing</strong>
                 <p>Install the free <strong>WebXR API Emulator</strong> extension in Chrome/Firefox to simulate 6DoF headsets, motion controllers, and hand tracking directly on your desktop PC!</p>
               </div>
             </div>
@@ -462,7 +462,7 @@ export const VRLab = () => {
               <button
                 type="button"
                 onClick={() => setShowVRGuide(false)}
-                className="px-4 py-2 rounded-xl bg-cyan-500 text-white text-xs font-bold hover:bg-cyan-400"
+                className="px-5 py-2.5 rounded-xl bg-cyan-500 text-white text-sm font-bold hover:bg-cyan-400 transition-colors"
               >
                 Got It
               </button>

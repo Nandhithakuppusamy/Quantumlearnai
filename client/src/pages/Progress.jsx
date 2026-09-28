@@ -52,22 +52,22 @@ export const Progress = () => {
   return (
     <div className="space-y-8 pb-16">
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-800/80">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
             <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
               Student Analytics
             </span>
           </div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">Learning Progress</h1>
-          <p className="text-sm text-slate-300 mt-1">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Learning Progress</h1>
+          <p className="text-sm sm:text-base text-slate-300 mt-1.5">
             Track your quantum curriculum completion, simulation activity, and quiz performance.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="px-3.5 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-bold flex items-center gap-1.5">
+          <span className="px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-bold flex items-center gap-2">
             <Flame className="w-4 h-4 text-amber-400" />
             7 Day Active Streak
           </span>
@@ -80,21 +80,21 @@ export const Progress = () => {
         {/* Overall Progress Circular Card (5 cols) */}
         <div className="lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 flex flex-col items-center justify-center text-center relative overflow-hidden">
           <div className="w-full flex items-center justify-between mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+            <span className="text-sm font-bold uppercase tracking-wider text-slate-400">
               Overall Progress
             </span>
-            <span className="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/40">
+            <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-lg border border-cyan-800/40">
               Rank: Explorer
             </span>
           </div>
 
           {/* SVG Circular Progress Indicator */}
-          <div className="relative w-44 h-44 my-4 flex items-center justify-center">
+          <div className="relative w-48 h-48 my-4 flex items-center justify-center">
             <svg className="w-full h-full -rotate-90">
               {/* Background circle */}
               <circle
-                cx="88"
-                cy="88"
+                cx="96"
+                cy="96"
                 r={radius}
                 stroke="#1e293b"
                 strokeWidth="12"
@@ -102,8 +102,8 @@ export const Progress = () => {
               />
               {/* Animated Progress circle */}
               <circle
-                cx="88"
-                cy="88"
+                cx="96"
+                cy="96"
                 r={radius}
                 stroke="url(#progressGrad)"
                 strokeWidth="12"
@@ -123,12 +123,12 @@ export const Progress = () => {
 
             {/* Inner Content */}
             <div className="absolute flex flex-col items-center justify-center">
-              <span className="text-4xl font-extrabold text-white tracking-tight">{overallProgress}%</span>
-              <span className="text-[11px] text-slate-400 uppercase font-semibold mt-0.5">Completed</span>
+              <span className="text-5xl font-extrabold text-white tracking-tight">{overallProgress}%</span>
+              <span className="text-xs text-slate-400 uppercase font-bold mt-1">Completed</span>
             </div>
           </div>
 
-          <p className="text-xs text-slate-300 max-w-xs mt-2 leading-relaxed">
+          <p className="text-sm text-slate-300 max-w-xs mt-3 leading-relaxed">
             You are progressing faster than 85% of peers in the quantum foundation track.
           </p>
         </div>
@@ -138,36 +138,36 @@ export const Progress = () => {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5" />
+                <Calendar className="w-4 h-4" />
                 Weekly Study Activity
               </span>
-              <h3 className="text-lg font-bold text-white mt-1">Practice Time & Circuits Simulated</h3>
+              <h3 className="text-xl font-bold text-white mt-1">Practice Time & Circuits Simulated</h3>
             </div>
-            <span className="text-xs font-mono text-slate-400">Total: 4.6 hrs</span>
+            <span className="text-sm font-mono text-slate-400">Total: 4.6 hrs</span>
           </div>
 
-          <div className="h-52 w-full pt-4">
+          <div className="h-56 w-full pt-4">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={activityData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <XAxis 
                   dataKey="day" 
                   stroke="#64748b" 
-                  tick={{ fill: '#cbd5e1', fontSize: 11 }} 
+                  tick={{ fill: '#cbd5e1', fontSize: 12 }} 
                 />
                 <YAxis 
                   unit="m" 
                   stroke="#64748b" 
-                  tick={{ fill: '#94a3b8', fontSize: 11 }} 
+                  tick={{ fill: '#94a3b8', fontSize: 12 }} 
                 />
                 <Tooltip 
                   content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="p-3 rounded-xl bg-slate-900 border border-slate-700 shadow-xl">
-                          <p className="font-bold text-xs text-white">{data.day}</p>
-                          <p className="text-xs text-cyan-400 mt-1">Study time: {data.minutes} mins</p>
-                          <p className="text-xs text-purple-400">Simulations: {data.simulations} runs</p>
+                        <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-700 shadow-xl">
+                          <p className="font-bold text-sm text-white">{data.day}</p>
+                          <p className="text-xs sm:text-sm text-cyan-400 mt-1">Study time: {data.minutes} mins</p>
+                          <p className="text-xs sm:text-sm text-purple-400">Simulations: {data.simulations} runs</p>
                         </div>
                       );
                     }
@@ -179,7 +179,7 @@ export const Progress = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="flex items-center justify-between pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div className="flex items-center justify-between pt-3 border-t border-slate-800 text-sm text-slate-400 font-medium">
             <span>Daily learning goal: 30 min</span>
             <span className="text-emerald-400 font-semibold">Goal reached 5 of 7 days</span>
           </div>
@@ -189,14 +189,14 @@ export const Progress = () => {
 
       {/* Experiment analytics */}
       <div>
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-base font-bold text-white">Experiment Analytics</h2>
-            <p className="text-xs text-slate-400 mt-1">Your progress across the connected Lab experience.</p>
+            <h2 className="text-lg font-bold text-white">Experiment Analytics</h2>
+            <p className="text-sm text-slate-400 mt-1">Your progress across the connected Lab experience.</p>
           </div>
-          <span className="text-[10px] uppercase tracking-wider text-cyan-300 border border-cyan-500/20 bg-cyan-500/10 rounded-full px-2.5 py-1">Live from Lab</span>
+          <span className="text-xs uppercase tracking-wider font-semibold text-cyan-300 border border-cyan-500/20 bg-cyan-500/10 rounded-full px-3 py-1">Live from Lab</span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5">
           {[
             ['Experiments', metrics.experiments, 'Runs completed'],
             ['Circuits modified', metrics.circuitsModified, 'Hands-on edits'],
@@ -205,10 +205,10 @@ export const Progress = () => {
             ['Algorithms explored', metrics.algorithmsExplored, 'Curriculum'],
             ['Concepts mastered', metrics.conceptsMastered, 'Knowledge']
           ].map(([label, value, note]) => (
-            <div key={label} className="glass-card rounded-2xl p-4 border border-slate-800">
-              <span className="block text-2xl font-extrabold text-white">{value}</span>
-              <span className="block text-xs font-bold text-cyan-300 mt-1">{label}</span>
-              <span className="block text-[10px] text-slate-500 mt-1">{note}</span>
+            <div key={label} className="glass-card rounded-2xl p-4 sm:p-5 border border-slate-800">
+              <span className="block text-2xl sm:text-3xl font-extrabold text-white">{value}</span>
+              <span className="block text-sm font-bold text-cyan-300 mt-1.5">{label}</span>
+              <span className="block text-xs text-slate-400 mt-1">{note}</span>
             </div>
           ))}
         </div>
@@ -219,15 +219,15 @@ export const Progress = () => {
         
         {/* Algorithm Progress Bars */}
         <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <h3 className="text-base font-bold text-white">Algorithm Progress</h3>
-            <span className="text-xs text-slate-400">5 Algorithms in syllabus</span>
+          <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
+            <h3 className="text-lg font-bold text-white">Algorithm Progress</h3>
+            <span className="text-sm text-slate-400">5 Algorithms in syllabus</span>
           </div>
 
           <div className="space-y-4 pt-1">
             {algorithmProgress.map((algo) => (
               <div key={algo.name} className="space-y-1.5">
-                <div className="flex justify-between text-xs font-semibold">
+                <div className="flex justify-between text-sm font-semibold">
                   <span className="text-slate-200">{algo.name}</span>
                   <span className="font-mono text-cyan-400">{algo.progress}%</span>
                 </div>
@@ -244,29 +244,29 @@ export const Progress = () => {
 
         {/* Quiz Performance Cards */}
         <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <h3 className="text-base font-bold text-white">Quiz Performance</h3>
-            <span className="text-xs text-slate-400">Average: 85%</span>
+          <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
+            <h3 className="text-lg font-bold text-white">Quiz Performance</h3>
+            <span className="text-sm text-slate-400">Average: 85%</span>
           </div>
 
           <div className="space-y-3 pt-1">
             {quizPerformance.map((q) => (
               <div 
                 key={q.topic}
-                className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between"
+                className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">
                     Q
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white">{q.topic}</h4>
-                    <span className="text-[10px] text-slate-400">{q.status}</span>
+                    <h4 className="text-sm font-bold text-white">{q.topic}</h4>
+                    <span className="text-xs text-slate-400">{q.status}</span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-base font-mono font-bold text-emerald-400">{q.score}%</span>
+                  <span className="text-lg font-mono font-bold text-emerald-400">{q.score}%</span>
                 </div>
               </div>
             ))}
@@ -275,29 +275,29 @@ export const Progress = () => {
           <button
             type="button"
             onClick={() => navigate('/quiz')}
-            className="w-full py-2.5 px-4 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-bold transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-sm font-bold transition-all flex items-center justify-center gap-2"
           >
             Take Another Practice Quiz
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
       </div>
 
       {/* Learning Recommendation Card (Requirement) */}
-      <div className="glass-card rounded-2xl p-6 border border-amber-500/30 bg-gradient-to-r from-amber-950/20 via-slate-900/60 to-slate-900/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+      <div className="glass-card rounded-2xl p-6 sm:p-7 border border-amber-500/30 bg-gradient-to-r from-amber-950/20 via-slate-900/60 to-slate-900/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
         <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <Lightbulb className="w-5 h-5" />
+          <div className="w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <Lightbulb className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1.5">
               AI Adaptive Learning Recommendation
             </span>
-            <p className="text-sm font-semibold text-white leading-relaxed">
+            <p className="text-base sm:text-lg font-semibold text-white leading-relaxed">
               "Based on your recent performance, practice Entanglement before moving to Grover's Search."
             </p>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-sm text-slate-300 mt-1.5 leading-relaxed">
               Reinforce Bell state density matrices to maximize your retention of amplitude amplification.
             </p>
           </div>
@@ -306,7 +306,7 @@ export const Progress = () => {
         <button
           type="button"
           onClick={() => navigate('/lab?algo=bell_state')}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-md flex-shrink-0"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold transition-all shadow-md flex-shrink-0"
         >
           Practice Entanglement
           <ArrowRight className="w-4 h-4" />
