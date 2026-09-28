@@ -43,8 +43,8 @@ export const Algorithms = () => {
         </div>
 
         {/* Search & Filter controls */}
-        <div className="flex items-center gap-3 w-full md:w-auto">
-          <div className="relative flex-1 md:w-64">
+        <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full md:w-auto">
+          <div className="relative flex-1 sm:w-64">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
@@ -55,13 +55,13 @@ export const Algorithms = () => {
             />
           </div>
 
-          <div className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 text-xs">
+          <div className="flex items-center w-full sm:w-auto bg-slate-900/90 p-1 rounded-xl border border-slate-700/80 text-xs overflow-x-auto">
             {['All', 'Beginner', 'Intermediate', 'Advanced'].map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap ${
                   selectedCategory === cat
                     ? 'bg-cyan-500 text-white font-bold shadow-quantum-cyan'
                     : 'text-slate-400 hover:text-white'

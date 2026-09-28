@@ -80,7 +80,7 @@ export const Settings = () => {
             <label className="text-xs font-semibold text-slate-300 block">
               Curriculum Difficulty Level
             </label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {['Beginner', 'Intermediate', 'Advanced'].map((lvl) => (
                 <button
                   key={lvl}
@@ -106,7 +106,7 @@ export const Settings = () => {
             <label className="text-xs font-semibold text-slate-300 block">
               Daily Study Goal
             </label>
-            <div className="grid grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {['15 min', '30 min', '45 min', '60 min'].map((goal) => (
                 <button
                   key={goal}
@@ -136,7 +136,7 @@ export const Settings = () => {
             <label className="text-xs font-semibold text-slate-300 block">
               Default Measurement Shots
             </label>
-            <div className="grid grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {['500', '1000', '2000', '4000'].map((shots) => (
                 <button
                   key={shots}
