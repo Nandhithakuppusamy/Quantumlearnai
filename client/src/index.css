@@ -15,51 +15,28 @@
   }
 }
 
-/* Readability scale: keep the existing hierarchy while making the many
-   compact dashboard labels comfortable at the browser's default zoom. */
+/* Fluid readability scale for the hard-coded pixel label sizes used across the
+   dashboard: each clamp interpolates between a compact phone size at 360px and
+   a comfortable desktop size at 1600px, matching tailwind.config.js. */
+.text-\[8px\] {
+  font-size: clamp(0.625rem, 0.5978rem + 0.121vw, 0.7188rem);
+  line-height: 1.4;
+}
+
 .text-\[9px\] {
-  font-size: 0.6875rem;
-  line-height: 1.3;
+  font-size: clamp(0.6875rem, 0.6603rem + 0.121vw, 0.7813rem);
+  line-height: 1.4;
 }
 
 .text-\[10px\] {
-  font-size: 0.75rem;
-  line-height: 1.35;
+  font-size: clamp(0.7188rem, 0.6825rem + 0.1613vw, 0.8438rem);
+  line-height: 1.45;
 }
 
-.text-\[11px\] {
-  font-size: 0.8125rem;
-  line-height: 1.4;
-}
-
-.text-xs {
-  font-size: 0.8125rem;
-  line-height: 1.4;
-}
-
-.text-sm {
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
-.text-lg {
-  font-size: 1.1875rem;
-  line-height: 1.4;
-}
-
-.text-xl {
-  font-size: 1.3125rem;
-  line-height: 1.35;
-}
-
-.text-2xl {
-  font-size: 1.625rem;
-  line-height: 1.25;
-}
-
-.text-3xl {
-  font-size: 2rem;
-  line-height: 1.2;
+.text-\[11px\],
+.text-\[12px\] {
+  font-size: clamp(0.75rem, 0.7137rem + 0.1613vw, 0.875rem);
+  line-height: 1.45;
 }
 
 button,

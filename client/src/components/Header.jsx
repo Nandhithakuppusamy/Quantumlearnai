@@ -7,9 +7,9 @@ export const Header = ({ onOpenMenu }) => {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-30 bg-[#070a12]/90 backdrop-blur-xl border-b border-slate-800/80 px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-30 bg-[#070a12]/90 backdrop-blur-xl border-b border-slate-800/80 px-3 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3">
       {/* Left: Product Branding */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         <button
           type="button"
           onClick={onOpenMenu}
@@ -18,28 +18,28 @@ export const Header = ({ onOpenMenu }) => {
         >
           <Menu className="w-5 h-5" />
         </button>
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="text-sm font-extrabold tracking-tight text-white flex items-center gap-1.5">
-            QuantumLearn <span className="text-cyan-400 font-mono text-xs">AI</span>
+        <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" />
+          <span className="text-base font-extrabold tracking-tight text-white flex items-center gap-1.5 whitespace-nowrap">
+            QuantumLearn <span className="text-cyan-400 font-mono text-sm">AI</span>
           </span>
         </div>
-        <span className="hidden sm:inline-block text-xs text-slate-400 border-l border-slate-800 pl-3">
+        <span className="hidden lg:inline-block text-sm text-slate-400 border-l border-slate-800 pl-3">
           Interactive Quantum Algorithm Learning Platform
         </span>
       </div>
 
       {/* Right: Streaks, XP & Quick Lab Access */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
         {/* Streak Counter */}
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold">
-          <Flame className="w-3.5 h-3.5 text-amber-400" />
+        <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs sm:text-sm font-semibold whitespace-nowrap">
+          <Flame className="w-4 h-4 flex-shrink-0 text-amber-400" />
           <span>7 Days</span>
         </div>
 
         {/* XP Points */}
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
-          <Zap className="w-3.5 h-3.5 text-purple-400" />
+        <div className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-semibold whitespace-nowrap">
+          <Zap className="w-4 h-4 flex-shrink-0 text-purple-400" />
           <span>1,420 Q-XP</span>
         </div>
 
@@ -48,9 +48,9 @@ export const Header = ({ onOpenMenu }) => {
           <button
             type="button"
             onClick={() => navigate('/lab')}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 transition-all hover:scale-105"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 transition-all hover:scale-105 whitespace-nowrap"
           >
-            <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
+            <FlaskConical className="w-4 h-4 flex-shrink-0 text-cyan-400" />
             <span className="hidden md:inline">Quantum</span> Lab
           </button>
         )}
