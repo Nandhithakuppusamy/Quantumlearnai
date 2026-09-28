@@ -39,7 +39,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
           className="md:hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40"
         />
       )}
-      <aside className={`${mobileOpen ? 'flex' : 'hidden'} md:flex flex-col w-72 md:w-64 flex-shrink-0 bg-[#090e1a]/98 border-r border-slate-800/80 p-5 min-h-screen fixed md:sticky inset-y-0 left-0 md:inset-auto top-0 backdrop-blur-xl z-50`}>
+      <aside className={`${mobileOpen ? 'flex' : 'hidden'} md:flex flex-col w-[17.5rem] md:w-[18rem] xl:w-[19rem] flex-shrink-0 bg-[#090e1a]/98 border-r border-slate-800/80 p-5 min-h-screen fixed md:sticky inset-y-0 left-0 md:inset-auto top-0 backdrop-blur-xl z-50`}>
       {/* Brand / Logo */}
       <div className="flex items-center gap-3 px-2 py-3 mb-6">
         <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-quantum-cyan">
@@ -47,10 +47,10 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
         </div>
         <div>
           <div className="flex items-center gap-1.5">
-            <h1 className="text-base font-extrabold text-white tracking-tight">QuantumLearn</h1>
+            <h1 className="text-lg font-extrabold text-white tracking-tight">QuantumLearn</h1>
             <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">AI</span>
           </div>
-          <p className="text-[10px] text-slate-400">Quantum Learning Platform</p>
+          <p className="text-[11px] text-slate-400">Quantum Learning Platform</p>
         </div>
         <button type="button" onClick={onClose} className="md:hidden ml-auto p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800" aria-label="Close navigation">
           <X className="w-4 h-4" />
@@ -59,7 +59,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
 
       {/* Main Navigation Links */}
       <div className="space-y-1.5 flex-1">
-        <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-300">
+        <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-300">
           Core Learning
         </div>
         {NAV_ITEMS.map((item) => {
@@ -71,7 +71,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
               end={item.path === '/'}
               onClick={onClose}
               className={({ isActive }) => `
-                flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group
+                flex items-center justify-between gap-2 px-3 py-3 rounded-xl text-sm font-semibold transition-all duration-200 group
                 ${isActive 
                   ? 'bg-gradient-to-r from-cyan-500/20 to-indigo-500/10 text-white border border-cyan-500/30 shadow-quantum-cyan' 
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
@@ -80,14 +80,14 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
             >
               {({ isActive }) => (
                 <>
-                  <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 transition-colors ${
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <Icon className={`w-5 h-5 flex-shrink-0 transition-colors ${
                       isActive ? 'text-cyan-400' : 'text-slate-400 group-hover:text-cyan-400'
                     }`} />
-                    <span>{item.label}</span>
+                    <span className="truncate">{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    <span className="text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex-shrink-0">
                       {item.badge}
                     </span>
                   )}
@@ -106,8 +106,8 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
               <Flame className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-xs font-bold text-white">7 Day Streak</span>
-              <span className="text-[10px] text-slate-400 block">Personal Best</span>
+              <span className="text-sm font-bold text-white">7 Day Streak</span>
+              <span className="text-[11px] text-slate-400 block">Personal Best</span>
             </div>
           </div>
           <span className="text-[11px] font-bold font-mono text-cyan-400">84% Acc</span>
@@ -116,7 +116,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
 
       {/* Bottom Navigation Links */}
       <div className="pt-3 border-t border-slate-800/80 space-y-1.5">
-        <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-300">
+        <div className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-300">
           Account & Prefs
         </div>
         {BOTTOM_ITEMS.map((item) => {
@@ -127,7 +127,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
               to={item.path}
               onClick={onClose}
               className={({ isActive }) => `
-                flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group
+                flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-semibold transition-all duration-200 group
                 ${isActive 
                   ? 'bg-gradient-to-r from-cyan-500/20 to-indigo-500/10 text-white border border-cyan-500/30 shadow-quantum-cyan' 
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
@@ -136,10 +136,10 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
             >
               {({ isActive }) => (
                 <>
-                  <Icon className={`w-4 h-4 transition-colors ${
+                  <Icon className={`w-5 h-5 flex-shrink-0 transition-colors ${
                     isActive ? 'text-cyan-400' : 'text-slate-400 group-hover:text-cyan-400'
                   }`} />
-                  <span>{item.label}</span>
+                  <span className="whitespace-nowrap">{item.label}</span>
                 </>
               )}
             </NavLink>
@@ -148,7 +148,7 @@ export const Sidebar = ({ mobileOpen = false, onClose }) => {
       </div>
 
       {/* Discreet project identifier */}
-      <div className="pt-3 text-[10px] text-slate-400 font-mono text-center">
+      <div className="pt-3 text-[11px] text-slate-400 font-mono text-center">
         Problem ID: SIH26140
       </div>
       </aside>

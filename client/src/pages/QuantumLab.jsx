@@ -121,12 +121,12 @@ export const QuantumLab = () => {
               key={id}
               type="button"
               onClick={() => id === 'vr' ? navigate('/vr-lab') : setMode(id)}
-              className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-colors ${mode === id ? 'bg-cyan-500/15 border border-cyan-500/30 text-white' : 'border border-transparent text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
+              className={`flex items-center gap-2.5 rounded-xl px-3 py-3 text-left transition-colors ${mode === id ? 'bg-cyan-500/15 border border-cyan-500/30 text-white' : 'border border-transparent text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
             >
-              <Icon className={`w-4 h-4 ${mode === id ? 'text-cyan-300' : 'text-slate-500'}`} />
-              <span>
-                <strong className="block text-xs">{label}</strong>
-                <small className="block text-[10px] text-slate-500 mt-0.5">{hint}</small>
+              <Icon className={`w-4 h-4 flex-shrink-0 ${mode === id ? 'text-cyan-300' : 'text-slate-500'}`} />
+              <span className="min-w-0">
+                <strong className="block text-xs truncate">{label}</strong>
+                <small className="block text-[10px] text-slate-500 mt-0.5 truncate">{hint}</small>
               </span>
             </button>
           ))}

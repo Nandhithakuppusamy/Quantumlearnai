@@ -24,7 +24,7 @@ export const Layout = () => {
           onOpenMenu={() => setIsMobileSidebarOpen(true)}
         />
         
-        <main className="flex-1 min-w-0 w-full p-4 sm:p-6 lg:p-8 2xl:p-10 pb-24 md:pb-8 overflow-x-hidden">
+        <main className="flex-1 min-w-0 w-full p-4 sm:p-6 lg:p-8 2xl:p-10 pb-28 md:pb-10 overflow-x-hidden">
           <Outlet context={{ openPresentation: () => setIsPresentationOpen(true) }} />
         </main>
       </div>
