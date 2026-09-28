@@ -86,32 +86,32 @@ export const QuantumCircuit = ({
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Quantum Circuit Editor</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+            <span className="text-sm font-semibold text-cyan-400 uppercase tracking-wider">Quantum Circuit Editor</span>
           </div>
-          <h3 className="text-xl font-bold text-white mt-1">Circuit Canvas: {activeAlgorithmName || 'Custom'}</h3>
-          <p className="text-xs text-slate-400">Click any gate from the palette, then click a qubit slot to place it</p>
+          <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">Circuit Canvas: {activeAlgorithmName || 'Custom'}</h3>
+          <p className="text-sm text-slate-400 mt-0.5">Click any gate from the palette, then click a qubit slot to place it</p>
         </div>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-2.5 flex-wrap">
           <button
             type="button"
             onClick={handleClear}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-xl transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-xl transition-all"
             title="Clear circuit"
           >
-            <Trash2 className="w-3.5 h-3.5" />
+            <Trash2 className="w-4 h-4" />
             Clear
           </button>
 
           <button
             type="button"
             onClick={onReset}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-xl transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-xl transition-all"
             title="Reset to algorithm default"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-4 h-4" />
             Reset
           </button>
 
@@ -119,7 +119,7 @@ export const QuantumCircuit = ({
             type="button"
             onClick={onSimulate}
             disabled={isSimulating}
-            className={`flex items-center gap-2 px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 ${
+            className={`flex items-center gap-2 px-6 py-2.5 text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 ${
               isSimulating
                 ? 'bg-cyan-600/50 text-cyan-200 cursor-wait'
                 : 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-quantum-cyan hover:scale-[1.02]'
@@ -127,12 +127,12 @@ export const QuantumCircuit = ({
           >
             {isSimulating ? (
               <>
-                <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 Simulating...
               </>
             ) : (
               <>
-                <Play className="w-3.5 h-3.5 fill-white" />
+                <Play className="w-4 h-4 fill-white" />
                 Simulate
               </>
             )}
@@ -141,18 +141,18 @@ export const QuantumCircuit = ({
       </div>
 
       {/* Gate Palette */}
-      <div className="my-5 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80">
-        <div className="flex items-center justify-between mb-2.5">
-          <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+      <div className="my-5 p-4 rounded-xl bg-slate-900/80 border border-slate-800/80">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
             Gate Palette (Select gate to place):
           </span>
-          <span className="text-[11px] text-cyan-400 font-mono">
+          <span className="text-xs text-cyan-400 font-mono font-bold">
             Active: [{selectedGate}]
           </span>
         </div>
 
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-3 flex-wrap">
           {PALETTE_GATES.map((g) => (
             <Gate
               key={g}
@@ -165,21 +165,21 @@ export const QuantumCircuit = ({
       </div>
 
       {/* The Quantum Wire Grid Area */}
-      <div className="relative py-6 px-4 bg-slate-950/60 rounded-xl border border-slate-800/80 overflow-x-auto">
-        <div className="min-w-[520px] sm:min-w-[580px] space-y-12 relative py-4">
+      <div className="relative py-6 px-5 bg-slate-950/60 rounded-xl border border-slate-800/80 overflow-x-auto">
+        <div className="min-w-[560px] sm:min-w-[620px] space-y-12 relative py-4">
           
           {/* Qubit 0 Line */}
           <div className="relative flex items-center">
             {/* Qubit Label */}
-            <div className="w-16 flex-shrink-0 flex items-center gap-2">
-              <span className="font-mono text-sm font-bold text-cyan-300 bg-cyan-950/60 px-2 py-1 rounded border border-cyan-800/50">
+            <div className="w-20 flex-shrink-0 flex items-center gap-2">
+              <span className="font-mono text-sm font-bold text-cyan-300 bg-cyan-950/60 px-2.5 py-1.5 rounded border border-cyan-800/50">
                 q₀
               </span>
-              <span className="font-mono text-xs text-slate-500">|0⟩</span>
+              <span className="font-mono text-sm text-slate-400">|0⟩</span>
             </div>
 
             {/* Horizontal Wire Line */}
-            <div className="absolute left-16 right-4 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-cyan-500/40 via-cyan-400/80 to-cyan-500/40 z-0" />
+            <div className="absolute left-20 right-4 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-cyan-500/40 via-cyan-400/80 to-cyan-500/40 z-0" />
 
             {/* Gate Slots for Qubit 0 */}
             <div className="flex items-center gap-6 pl-6 z-10">
@@ -233,15 +233,15 @@ export const QuantumCircuit = ({
           {/* Qubit 1 Line */}
           <div className="relative flex items-center">
             {/* Qubit Label */}
-            <div className="w-16 flex-shrink-0 flex items-center gap-2">
-              <span className="font-mono text-sm font-bold text-purple-300 bg-purple-950/60 px-2 py-1 rounded border border-purple-800/50">
+            <div className="w-20 flex-shrink-0 flex items-center gap-2">
+              <span className="font-mono text-sm font-bold text-purple-300 bg-purple-950/60 px-2.5 py-1.5 rounded border border-purple-800/50">
                 q₁
               </span>
-              <span className="font-mono text-xs text-slate-500">|0⟩</span>
+              <span className="font-mono text-sm text-slate-400">|0⟩</span>
             </div>
 
             {/* Horizontal Wire Line */}
-            <div className="absolute left-16 right-4 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-purple-500/40 via-purple-400/80 to-purple-500/40 z-0" />
+            <div className="absolute left-20 right-4 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-purple-500/40 via-purple-400/80 to-purple-500/40 z-0" />
 
             {/* Gate Slots for Qubit 1 */}
             <div className="flex items-center gap-6 pl-6 z-10">
@@ -295,12 +295,12 @@ export const QuantumCircuit = ({
         </div>
 
         {/* Footer info note */}
-        <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
-          <span className="flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5 text-cyan-400" />
-            Click on any empty slot to insert selected gate <strong>{selectedGate}</strong>. Click gate to remove.
+        <div className="mt-4 pt-3.5 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-slate-300">
+          <span className="flex items-center gap-2">
+            <Info className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+            Click on any empty slot to insert selected gate <strong className="text-white">[{selectedGate}]</strong>. Click gate to remove.
           </span>
-          <span className="font-mono text-cyan-300">
+          <span className="font-mono text-cyan-300 text-xs sm:text-sm">
             Educational Local Simulator • 2 Qubits
           </span>
         </div>
