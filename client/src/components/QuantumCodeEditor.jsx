@@ -30,17 +30,17 @@ export const QuantumCodeEditor = ({ circuit, onCircuitChange, onSimulate, isSimu
           </div>
           <div>
             <h3 className="text-sm font-bold text-white">Code Mode</h3>
-            <p className="text-[11px] text-slate-400">The same circuit, written as beginner-friendly quantum code</p>
+            <p className="text-xs text-slate-400">The same circuit, written as beginner-friendly quantum code</p>
           </div>
         </div>
-        <span className="text-[10px] font-mono text-cyan-300 px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20">
+        <span className="text-xs font-mono text-cyan-300 px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20">
           qc • 2 qubits
         </span>
       </div>
 
       <div className="p-4 space-y-3">
         <div className="rounded-xl border border-slate-800 bg-[#050812] overflow-hidden">
-          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-slate-800 text-[10px] text-slate-500">
+          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-slate-800 text-xs text-slate-400">
             <Terminal className="w-3.5 h-3.5 text-cyan-400" />
             quantum_circuit.py
           </div>

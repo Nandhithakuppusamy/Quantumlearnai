@@ -25,7 +25,7 @@ export const App = () => {
             color: '#f8fafc',
             border: '1px solid rgba(6, 182, 212, 0.3)',
             backdropFilter: 'blur(12px)',
-            fontSize: '13px',
+            fontSize: 'clamp(14px, 0.95rem, 1rem)',
             fontWeight: 500,
             borderRadius: '14px',
             padding: '12px 18px',

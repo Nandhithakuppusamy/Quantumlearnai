@@ -191,7 +191,7 @@ export const StockLogs = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50 text-slate-500 uppercase text-[11px] font-bold tracking-wider border-b border-slate-200/80">
+              <thead className="bg-slate-50 text-slate-500 uppercase text-xs font-bold tracking-wider border-b border-slate-200/80">
                 <tr>
                   <th className="px-5 py-3.5">Timestamp</th>
                   <th className="px-4 py-3.5">Product Name</th>

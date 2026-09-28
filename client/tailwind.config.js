@@ -11,6 +11,17 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
+      fontSize: {
+        'xs': ['clamp(14px, 0.875rem, 0.95rem)', { lineHeight: '1.45' }],
+        'sm': ['clamp(14px, 0.9375rem, 1.05rem)', { lineHeight: '1.5' }],
+        'base': ['1rem', { lineHeight: '1.6' }],
+        'lg': ['1.25rem', { lineHeight: '1.4' }],
+        'xl': ['1.5rem', { lineHeight: '1.35' }],
+        '2xl': ['2rem', { lineHeight: '1.25' }],
+        '3xl': ['2.5rem', { lineHeight: '1.2' }],
+        '4xl': ['3rem', { lineHeight: '1.15' }],
+        '5xl': ['3.75rem', { lineHeight: '1.1' }],
+      },
       colors: {
         quantum: {
           950: '#070a12',

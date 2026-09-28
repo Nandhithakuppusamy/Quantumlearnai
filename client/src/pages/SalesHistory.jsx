@@ -174,7 +174,7 @@ export const SalesHistory = () => {
 
         {/* Quick Date Presets */}
         <div className="flex items-center gap-2 pt-1 overflow-x-auto text-xs">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">
+          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">
             Presets:
           </span>
           {[

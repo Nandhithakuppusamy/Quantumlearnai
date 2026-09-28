@@ -29,7 +29,7 @@ export const Gate = ({ gateKey, isSelected, onClick, isSmall = false, tooltip = 
         </span>
 
         {/* Small gate symbol indicator */}
-        <span className="absolute bottom-1 right-1 text-[9px] opacity-40 font-sans uppercase">
+        <span className="absolute bottom-1 right-1.5 text-xs opacity-50 font-sans uppercase font-medium">
           {gateKey === 'CNOT' ? '2q' : '1q'}
         </span>
       </button>

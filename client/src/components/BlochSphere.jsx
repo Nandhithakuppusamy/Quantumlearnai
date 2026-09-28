@@ -147,7 +147,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
             y={cy - R - 18}
             textAnchor="middle"
             fill="#38bdf8"
-            fontSize="12"
+            fontSize="14"
             fontFamily="monospace"
             fontWeight="bold"
           >
@@ -159,7 +159,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
             y={cy + R + 26}
             textAnchor="middle"
             fill="#a855f7"
-            fontSize="12"
+            fontSize="14"
             fontFamily="monospace"
             fontWeight="bold"
           >
@@ -181,7 +181,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
             y={projY(1.15, 0, 0)}
             textAnchor="middle"
             fill="#94a3b8"
-            fontSize="9"
+            fontSize="14"
             fontFamily="monospace"
           >
             +X
@@ -202,7 +202,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
             y={projY(0, 1.15, 0)}
             textAnchor="middle"
             fill="#94a3b8"
-            fontSize="9"
+            fontSize="14"
             fontFamily="monospace"
           >
             +Y
@@ -243,7 +243,7 @@ export const BlochSphere = ({ blochCoords, onSelectQubit, selectedQubit = 0 }) =
             y={tipY + (tipY > cy ? 12 : -8)}
             textAnchor={tipX > cx ? 'start' : 'end'}
             fill="#06b6d4"
-            fontSize="11"
+            fontSize="14"
             fontFamily="monospace"
             fontWeight="bold"
           >

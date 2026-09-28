@@ -152,12 +152,12 @@ export const Progress = () => {
                 <XAxis 
                   dataKey="day" 
                   stroke="#64748b" 
-                  tick={{ fill: '#cbd5e1', fontSize: 12 }} 
+                  tick={{ fill: '#cbd5e1', fontSize: 14 }} 
                 />
                 <YAxis 
                   unit="m" 
                   stroke="#64748b" 
-                  tick={{ fill: '#94a3b8', fontSize: 12 }} 
+                  tick={{ fill: '#94a3b8', fontSize: 14 }} 
                 />
                 <Tooltip 
                   content={({ active, payload }) => {

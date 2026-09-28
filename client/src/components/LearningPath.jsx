@@ -125,12 +125,12 @@ export const LearningPath = () => {
                 </div>
 
                 {/* Label */}
-                <span className={`text-xs mt-3 font-medium transition-colors ${
-                  isSelected ? 'text-white font-bold' : isActive ? 'text-cyan-300' : 'text-slate-400'
+                <span className={`text-sm mt-3 font-semibold transition-colors ${
+                  isSelected ? 'text-white font-bold' : isActive ? 'text-cyan-300' : 'text-slate-300'
                 }`}>
                   {step.title}
                 </span>
-                <span className="text-[10px] text-slate-400">{step.level}</span>
+                <span className="text-xs text-slate-400 font-medium">{step.level}</span>
               </div>
             );
           })}
@@ -140,14 +140,14 @@ export const LearningPath = () => {
       {/* Selected Step Detail Tray */}
       {selectedStep && (
         <div className="mt-2 p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
-              <BookOpen className="w-4 h-4" />
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
+              <BookOpen className="w-5 h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h4 className="text-sm font-semibold text-white">{selectedStep.title}</h4>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full border ${
+              <div className="flex items-center gap-2.5">
+                <h4 className="text-base font-bold text-white">{selectedStep.title}</h4>
+                <span className={`text-xs px-2.5 py-0.5 rounded-full border font-semibold ${
                   selectedStep.status === 'completed' ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20' :
                   selectedStep.status === 'active' ? 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20' :
                   'bg-slate-800 text-slate-400 border-slate-700'
@@ -155,16 +155,16 @@ export const LearningPath = () => {
                   {selectedStep.status === 'completed' ? 'Mastered' : selectedStep.status === 'active' ? 'Current Module' : 'Upcoming'}
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">{selectedStep.description}</p>
+              <p className="text-sm text-slate-300 mt-1">{selectedStep.description}</p>
             </div>
           </div>
 
           <button
             onClick={() => navigate(selectedStep.route)}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 rounded-xl hover:bg-cyan-500/20 transition-all flex-shrink-0"
+            className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 rounded-xl hover:bg-cyan-500/20 transition-all flex-shrink-0"
           >
             Explore Lesson
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       )}

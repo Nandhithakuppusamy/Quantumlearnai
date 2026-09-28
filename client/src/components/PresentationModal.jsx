@@ -50,7 +50,7 @@ export const PresentationModal = ({ isOpen, onClose }) => {
               <h2 className="text-base font-bold text-white tracking-wide">
                 SIH 2026 Presentation Mode
               </h2>
-              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+              <span className="text-xs uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                 Problem: SIH26140
               </span>
             </div>

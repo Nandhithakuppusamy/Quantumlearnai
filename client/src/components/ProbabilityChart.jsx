@@ -82,13 +82,13 @@ export const ProbabilityChart = ({
               <XAxis 
                 dataKey="state" 
                 stroke="#64748b" 
-                tick={{ fill: '#cbd5e1', fontSize: 13, fontFamily: 'monospace' }} 
+                tick={{ fill: '#cbd5e1', fontSize: 14, fontFamily: 'monospace' }} 
               />
               <YAxis 
                 domain={[0, 100]} 
                 unit="%" 
                 stroke="#64748b" 
-                tick={{ fill: '#94a3b8', fontSize: 12 }} 
+                tick={{ fill: '#94a3b8', fontSize: 14 }} 
               />
               <Tooltip 
                 content={({ active, payload }) => {

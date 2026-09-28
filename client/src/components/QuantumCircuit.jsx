@@ -214,7 +214,7 @@ export const QuantumCircuit = ({
                         <button
                           type="button"
                           onClick={(e) => removeGateAt(0, slotIdx, e)}
-                          className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-red-500/90 text-white text-[9px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500/90 hover:bg-red-600 text-white text-xs font-bold leading-none flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                         >
                           ×
                         </button>
@@ -276,7 +276,7 @@ export const QuantumCircuit = ({
                         <button
                           type="button"
                           onClick={(e) => removeGateAt(1, slotIdx, e)}
-                          className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-red-500/90 text-white text-[9px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500/90 hover:bg-red-600 text-white text-xs font-bold leading-none flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                         >
                           ×
                         </button>
