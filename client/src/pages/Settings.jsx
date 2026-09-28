@@ -50,7 +50,7 @@ export const Settings = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8 pb-20">
+    <div className="w-full space-y-8 pb-20">
       {/* Header */}
       <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
         <div>

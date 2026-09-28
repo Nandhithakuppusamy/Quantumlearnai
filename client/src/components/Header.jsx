@@ -1,15 +1,23 @@
 import React from 'react';
-import { Flame, Zap, FlaskConical, Atom } from 'lucide-react';
+import { Flame, Zap, FlaskConical, Menu } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-export const Header = () => {
+export const Header = ({ onOpenMenu }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-30 bg-[#070a12]/80 backdrop-blur-xl border-b border-slate-800/80 px-6 py-3.5 flex items-center justify-between">
+    <header className="sticky top-0 z-30 bg-[#070a12]/90 backdrop-blur-xl border-b border-slate-800/80 px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
       {/* Left: Product Branding */}
       <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={onOpenMenu}
+          className="md:hidden p-2 -ml-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+          aria-label="Open navigation"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
         <div className="flex items-center gap-2.5">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
           <span className="text-sm font-extrabold tracking-tight text-white flex items-center gap-1.5">

@@ -9,12 +9,15 @@ import {
   Settings, 
   User, 
   Atom, 
-  Flame
+  Flame,
+  Box,
+  X
 } from 'lucide-react';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/lab', label: 'Quantum Lab', icon: FlaskConical, badge: 'Workbench' },
+  { path: '/vr-lab', label: 'VR Lab', icon: Box, badge: '3D' },
   { path: '/algorithms', label: 'Algorithms', icon: Binary },
   { path: '/quiz', label: 'Quiz', icon: HelpCircle },
   { path: '/progress', label: 'Progress', icon: TrendingUp },
@@ -25,9 +28,18 @@ const BOTTOM_ITEMS = [
   { path: '/settings', label: 'Settings', icon: Settings },
 ];
 
-export const Sidebar = () => {
+export const Sidebar = ({ mobileOpen = false, onClose }) => {
   return (
-    <aside className="hidden md:flex flex-col w-64 bg-[#090e1a]/95 border-r border-slate-800/80 p-5 min-h-screen sticky top-0 backdrop-blur-xl z-40">
+    <>
+      {mobileOpen && (
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close navigation"
+          className="md:hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40"
+        />
+      )}
+      <aside className={`${mobileOpen ? 'flex' : 'hidden'} md:flex flex-col w-72 md:w-64 flex-shrink-0 bg-[#090e1a]/98 border-r border-slate-800/80 p-5 min-h-screen fixed md:sticky inset-y-0 left-0 md:inset-auto top-0 backdrop-blur-xl z-50`}>
       {/* Brand / Logo */}
       <div className="flex items-center gap-3 px-2 py-3 mb-6">
         <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-quantum-cyan">
@@ -40,6 +52,9 @@ export const Sidebar = () => {
           </div>
           <p className="text-[10px] text-slate-400">Quantum Learning Platform</p>
         </div>
+        <button type="button" onClick={onClose} className="md:hidden ml-auto p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800" aria-label="Close navigation">
+          <X className="w-4 h-4" />
+        </button>
       </div>
 
       {/* Main Navigation Links */}
@@ -54,6 +69,7 @@ export const Sidebar = () => {
               key={item.path}
               to={item.path}
               end={item.path === '/'}
+              onClick={onClose}
               className={({ isActive }) => `
                 flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group
                 ${isActive 
@@ -109,6 +125,7 @@ export const Sidebar = () => {
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={onClose}
               className={({ isActive }) => `
                 flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group
                 ${isActive 
@@ -134,7 +151,8 @@ export const Sidebar = () => {
       <div className="pt-3 text-[10px] text-slate-400 font-mono text-center">
         Problem ID: SIH26140
       </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 

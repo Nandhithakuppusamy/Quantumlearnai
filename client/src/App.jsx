@@ -10,6 +10,8 @@ import Quiz from './pages/Quiz';
 import Progress from './pages/Progress';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import VRLab from './pages/VRLab';
+import { LabProvider } from './context/LabContext';
 
 export const App = () => {
   return (
@@ -44,19 +46,22 @@ export const App = () => {
         }}
       />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="lab" element={<QuantumLab />} />
-            <Route path="algorithms" element={<Algorithms />} />
-            <Route path="algorithms/:id" element={<AlgorithmDetail />} />
-            <Route path="quiz" element={<Quiz />} />
-            <Route path="progress" element={<Progress />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
+        <LabProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="lab" element={<QuantumLab />} />
+              <Route path="vr-lab" element={<VRLab />} />
+              <Route path="algorithms" element={<Algorithms />} />
+              <Route path="algorithms/:id" element={<AlgorithmDetail />} />
+              <Route path="quiz" element={<Quiz />} />
+              <Route path="progress" element={<Progress />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+          </Routes>
+        </LabProvider>
       </BrowserRouter>
     </>
   );

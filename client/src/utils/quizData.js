@@ -93,5 +93,18 @@ export const QUIZ_QUESTIONS = [
     ],
     correctAnswer: 1, // index of option B
     explanation: 'The Pauli-X gate is the quantum analog of a classical NOT gate. It flips the basis state |0⟩ to |1⟩ and |1⟩ to |0⟩ by swapping the probability amplitudes.'
+  },
+  {
+    id: 8,
+    topic: 'Lab Experiment',
+    question: 'If the Hadamard gate is removed from the Bell State circuit, what change would you expect?',
+    options: [
+      'The circuit still creates a 50/50 entangled state',
+      'The qubits remain in |00⟩ instead of becoming entangled',
+      'Both qubits are automatically measured as |11⟩',
+      'The CNOT gate turns into a Hadamard gate'
+    ],
+    correctAnswer: 1,
+    explanation: 'Without H, q0 stays in |0⟩. CNOT only flips q1 when its control is |1⟩, so the pair remains |00⟩ and no Bell-state entanglement is created.'
   }
 ];

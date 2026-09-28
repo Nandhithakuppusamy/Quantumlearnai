@@ -166,7 +166,7 @@ export const QuantumCircuit = ({
 
       {/* The Quantum Wire Grid Area */}
       <div className="relative py-6 px-4 bg-slate-950/60 rounded-xl border border-slate-800/80 overflow-x-auto">
-        <div className="min-w-[580px] space-y-12 relative py-4">
+        <div className="min-w-[520px] sm:min-w-[580px] space-y-12 relative py-4">
           
           {/* Qubit 0 Line */}
           <div className="relative flex items-center">

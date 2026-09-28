@@ -7,17 +7,24 @@ import PresentationModal from './PresentationModal';
 
 export const Layout = () => {
   const [isPresentationOpen, setIsPresentationOpen] = useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#070a12] text-slate-100 flex flex-col md:flex-row">
       {/* Sidebar for Desktop */}
-      <Sidebar />
+      <Sidebar
+        mobileOpen={isMobileSidebarOpen}
+        onClose={() => setIsMobileSidebarOpen(false)}
+      />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
-        <Header onOpenPresentation={() => setIsPresentationOpen(true)} />
+        <Header
+          onOpenPresentation={() => setIsPresentationOpen(true)}
+          onOpenMenu={() => setIsMobileSidebarOpen(true)}
+        />
         
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto pb-24 md:pb-8">
+        <main className="flex-1 min-w-0 w-full p-4 sm:p-6 lg:p-8 2xl:p-10 pb-24 md:pb-8 overflow-x-hidden">
           <Outlet context={{ openPresentation: () => setIsPresentationOpen(true) }} />
         </main>
       </div>

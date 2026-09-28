@@ -295,6 +295,76 @@ export const simulateCircuit = (circuitSteps, totalShots = 1000) => {
   };
 };
 
+// Human-readable beginner code representation shared by the Visual, Code, and VR modes.
+export const circuitToCode = (circuitSteps = []) => {
+  const lines = ['const qc = new QuantumCircuit(2);'];
+  for (const step of circuitSteps) {
+    if (step?.type === 'cnot') {
+      lines.push(`qc.cx(${step.control}, ${step.target});`);
+      continue;
+    }
+    if (step?.q0 && step.q0 !== 'M') lines.push(`qc.${step.q0.toLowerCase()}(0);`);
+    if (step?.q1 && step.q1 !== 'M') lines.push(`qc.${step.q1.toLowerCase()}(1);`);
+    if (step?.q0 === 'M' || step?.q1 === 'M') lines.push('qc.measure_all();');
+  }
+  if (!lines.some((line) => line.includes('measure_all'))) lines.push('qc.measure_all();');
+  return lines.join('\n');
+};
+
+// Parse the deliberately small teaching syntax used in Code Mode.
+export const parseQuantumCode = (source = '') => {
+  const steps = [];
+  const lines = source.split(/\r?\n/);
+  const supportedGates = ['h', 'x', 'y', 'z', 's', 't'];
+  let hasMeasurement = false;
+
+  for (const rawLine of lines) {
+    const line = rawLine.replace(/\/\/.*$/, '').trim();
+    if (!line || line.startsWith('const qc')) continue;
+    if (/^qc\.measure_all\s*\(\s*\)\s*;?$/.test(line)) {
+      hasMeasurement = true;
+      continue;
+    }
+
+    const singleGate = line.match(/^qc\.(h|x|y|z|s|t)\s*\(\s*([01])\s*\)\s*;?$/i);
+    if (singleGate) {
+      const gate = singleGate[1].toUpperCase();
+      const qubit = Number(singleGate[2]);
+      steps.push({
+        id: `step-${steps.length + 1}`,
+        q0: qubit === 0 ? gate : null,
+        q1: qubit === 1 ? gate : null
+      });
+      continue;
+    }
+
+    const cnot = line.match(/^qc\.cx\s*\(\s*([01])\s*,\s*([01])\s*\)\s*;?$/i);
+    if (cnot && cnot[1] !== cnot[2]) {
+      steps.push({
+        id: `step-${steps.length + 1}`,
+        type: 'cnot',
+        control: Number(cnot[1]),
+        target: Number(cnot[2])
+      });
+      continue;
+    }
+
+    if (line.startsWith('qc.') && !supportedGates.some((gate) => line.toLowerCase().startsWith(`qc.${gate}`))) {
+      return { error: `I don't recognize "${line}". Try qc.h(0), qc.cx(0, 1), or qc.measure_all().` };
+    }
+    return { error: `Please check this line: "${line}". Gates use a qubit number of 0 or 1.` };
+  }
+
+  if (!steps.length && !hasMeasurement) {
+    return { error: 'Add at least one gate, such as qc.h(0), before applying the code.' };
+  }
+
+  if (hasMeasurement) {
+    steps.push({ id: `step-${steps.length + 1}`, q0: 'M', q1: 'M' });
+  }
+  return { circuit: steps };
+};
+
 // Algorithm Preset Circuits and Educational metadata
 export const ALGORITHM_PRESETS = {
   bell_state: {

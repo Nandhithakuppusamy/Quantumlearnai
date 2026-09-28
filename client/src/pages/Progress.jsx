@@ -13,9 +13,11 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+import { useLab } from '../context/LabContext';
 
 export const Progress = () => {
   const navigate = useNavigate();
+  const { metrics } = useLab();
 
   const algorithmProgress = [
     { name: 'Quantum Gates', progress: 100, color: 'from-emerald-500 to-teal-400' },
@@ -183,6 +185,33 @@ export const Progress = () => {
           </div>
         </div>
 
+      </div>
+
+      {/* Experiment analytics */}
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h2 className="text-base font-bold text-white">Experiment Analytics</h2>
+            <p className="text-xs text-slate-400 mt-1">Your progress across the connected Lab experience.</p>
+          </div>
+          <span className="text-[10px] uppercase tracking-wider text-cyan-300 border border-cyan-500/20 bg-cyan-500/10 rounded-full px-2.5 py-1">Live from Lab</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
+          {[
+            ['Experiments', metrics.experiments, 'Runs completed'],
+            ['Circuits modified', metrics.circuitsModified, 'Hands-on edits'],
+            ['What-If runs', metrics.whatIf, 'Comparisons'],
+            ['VR experiments', metrics.vrExperiments, '3D sessions'],
+            ['Algorithms explored', metrics.algorithmsExplored, 'Curriculum'],
+            ['Concepts mastered', metrics.conceptsMastered, 'Knowledge']
+          ].map(([label, value, note]) => (
+            <div key={label} className="glass-card rounded-2xl p-4 border border-slate-800">
+              <span className="block text-2xl font-extrabold text-white">{value}</span>
+              <span className="block text-xs font-bold text-cyan-300 mt-1">{label}</span>
+              <span className="block text-[10px] text-slate-500 mt-1">{note}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Middle Row: Algorithm Progress & Quiz Performance */}

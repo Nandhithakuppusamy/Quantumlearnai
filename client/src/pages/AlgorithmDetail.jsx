@@ -41,7 +41,7 @@ export const AlgorithmDetail = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 pb-20">
+    <div className="w-full space-y-8 pb-20">
       {/* Back Button */}
       <div>
         <button

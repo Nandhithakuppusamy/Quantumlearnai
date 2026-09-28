@@ -11,7 +11,9 @@ import {
   CheckCircle2, 
   PlayCircle,
   FlaskConical,
-  Compass
+  Compass,
+  Box,
+  ArrowDown
 } from 'lucide-react';
 import StatCard from '../components/StatCard';
 import LearningPath from '../components/LearningPath';
@@ -64,6 +66,26 @@ export const Dashboard = () => {
               Open Quantum Lab
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Immersive Lab entry point */}
+      <div className="glass-card rounded-2xl p-5 sm:p-6 border border-purple-500/25 bg-gradient-to-r from-purple-950/40 via-slate-900/80 to-cyan-950/30 relative overflow-hidden">
+        <div className="absolute -right-12 -top-16 w-48 h-48 rounded-full bg-purple-500/15 blur-3xl pointer-events-none" />
+        <div className="relative flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-200 flex items-center justify-center flex-shrink-0">
+              <Box className="w-6 h-6" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-wider font-bold text-purple-300">New immersive workspace</span>
+              <h2 className="text-xl font-bold text-white mt-1">Immersive Quantum Lab</h2>
+              <p className="text-xs text-slate-300 mt-1 max-w-2xl">Explore quantum computing in 3D with the same circuits, probabilities, and Bell State experiment from your regular lab.</p>
+            </div>
+          </div>
+          <button type="button" onClick={() => navigate('/vr-lab')} className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-purple-500/20 border border-purple-400/40 text-purple-100 text-xs font-bold hover:bg-purple-500/30 transition-colors flex-shrink-0">
+            <Box className="w-4 h-4" /> Enter VR Lab <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
@@ -184,6 +206,27 @@ export const Dashboard = () => {
           </button>
         </div>
 
+      </div>
+
+      {/* Connected learning journey */}
+      <div className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800">
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <div>
+            <h3 className="text-base font-bold text-white">Your learning journey</h3>
+            <p className="text-xs text-slate-400 mt-1">Move from a concept to a measurable experiment.</p>
+          </div>
+          <Sparkles className="w-4 h-4 text-cyan-400" />
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {['Learn', 'Build', 'Simulate', 'Visualize', 'Experiment', 'Ask AI', 'Challenge', 'Progress'].map((step, index, steps) => (
+            <React.Fragment key={step}>
+              <span className={`px-3 py-2 rounded-xl text-xs font-bold border ${index < 3 ? 'bg-cyan-500/10 border-cyan-500/25 text-cyan-200' : 'bg-slate-900 border-slate-700 text-slate-300'}`}>
+                {step}
+              </span>
+              {index < steps.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:block" />}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
 
       {/* Interactive Learning Path Visualization */}

@@ -7,6 +7,7 @@ export const AITutor = ({ currentAlgorithm = 'bell_state' }) => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const chatBottomRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const context = ALGORITHM_TUTOR_CONTEXT[currentAlgorithm] || ALGORITHM_TUTOR_CONTEXT.bell_state;
 
@@ -23,7 +24,10 @@ export const AITutor = ({ currentAlgorithm = 'bell_state' }) => {
 
   // Auto-scroll to bottom of chat
   useEffect(() => {
-    chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+    }
   }, [messages, isTyping]);
 
   const handleSend = (textToSend) => {
@@ -119,7 +123,7 @@ export const AITutor = ({ currentAlgorithm = 'bell_state' }) => {
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+      <div ref={messagesContainerRef} className="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
         {messages.map((msg) => {
           const isAI = msg.sender === 'ai';
           return (

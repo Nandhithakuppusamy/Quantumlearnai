@@ -1,0 +1,279 @@
+Improve and complete my existing QuantumLearn website without rebuilding it from scratch. Keep all existing functionality, content, dark theme, sidebar, components, and overall visual identity. Make the following changes carefully and progressively.
+
+1. Make the entire website fully responsive
+
+The current website is too narrow and centered, leaving excessive empty space on the left and right on large screens. Fix the overall layout.
+
+Remove overly restrictive max-width and fixed-width containers.
+Make the main content use the available desktop screen width effectively.
+Keep the existing sidebar.
+At 100% browser zoom, the website should be comfortable to view without needing to zoom out.
+Do not simply increase the font size or scale the entire UI.
+Use responsive CSS Grid/Flexbox properly.
+Desktop: use the available width with appropriate multi-column layouts.
+Tablet: automatically reduce columns and spacing.
+Mobile: stack sections vertically and make the sidebar collapsible/responsive.
+Prevent horizontal scrolling and content overflow.
+Make cards, charts, circuit diagrams, buttons, tables, and visualizations resize correctly.
+
+Apply this consistently to:
+
+Dashboard
+Quantum Lab
+Algorithms
+Quiz
+Progress
+Settings/Profile
+
+Do not redesign the existing UI. The goal is to make the existing design responsive and use the screen space properly.
+
+2. Improve the Dashboard
+
+Keep the existing dashboard design and statistics.
+
+Add an “Immersive Quantum Lab” section/card with:
+
+Explore quantum computing in 3D
+
+Enter VR Lab →
+
+Also make the learning journey clearly communicate:
+
+Learn → Build → Simulate → Visualize → Experiment → Ask AI → Challenge → Progress
+
+Keep the existing learning progress, algorithms learned, quiz accuracy, streak, continue learning, recommended learning, roadmap, and recent activity sections.
+
+3. Upgrade the Quantum Lab
+
+The Quantum Lab is the main feature of the platform. Keep the existing circuit builder, simulator, measurement probabilities, quantum-state display, Bloch sphere, and AI Quantum Tutor.
+
+Add three modes:
+
+Visual Mode | Code Mode | VR Mode
+
+Visual Mode
+
+Keep the existing drag-and-drop/gate-based circuit builder.
+
+Code Mode
+
+Allow students to create the same circuit using simple quantum code, for example:
+
+qc.h(0)
+qc.cx(0, 1)
+qc.measure_all()
+
+The Visual Mode and Code Mode must represent the same circuit and use the same simulation/results.
+
+Experiment controls
+
+Add:
+
+[ SIMULATE ] [ WHAT-IF ] [ OPEN IN VR ]
+
+Do not remove the existing Simulate functionality.
+
+4. Add a “What-If Experiment” feature
+
+This should be one of the important interactive features.
+
+Students should be able to modify a circuit and compare the original circuit with the modified circuit.
+
+Example:
+
+Original
+H → CNOT
+
+Modified
+H → X → CNOT
+
+Show:
+
+Original circuit
+Modified circuit
+Original measurement probabilities
+Modified measurement probabilities
+Difference between the results
+Simple AI explanation of why the result changed
+
+Add a question such as:
+
+“What happens if I change this gate?”
+
+The AI tutor should explain the effect in simple student-friendly language.
+
+5. Add an Interactive VR / 3D Quantum Lab
+
+Add a new VR Lab page accessible from the sidebar and from the Quantum Lab.
+
+Do not create a completely separate quantum simulator.
+
+The VR/3D experience should use the same circuit and simulation data as the normal Quantum Lab.
+
+For the prototype, use a browser-based 3D/WebXR-style experience rather than requiring a native VR application.
+
+The VR Lab should contain:
+
+3D qubits
+Quantum gates
+Circuit representation
+Ability to interact with gates
+Run/Simulate Experiment button
+Measurement results
+Quantum-state visualization
+Simple AI explanation
+Return to normal Quantum Lab
+
+If actual WebXR is not available on the current environment, create a convincing interactive 3D mode that can later be connected to WebXR.
+
+6. Use Bell State as the main VR demonstration
+
+Create a clear beginner-friendly Bell State experiment:
+
+Qubit 0: ── H ──●──
+               │
+Qubit 1: ───────X──
+
+Explain that the experiment creates an entangled state.
+
+Show:
+
+|ψ⟩ = (|00⟩ + |11⟩) / √2
+
+Expected measurement visualization:
+
+|00⟩ ≈ 50%
+|11⟩ ≈ 50%
+Other states ≈ 0%
+
+In the VR/3D view, visually represent the relationship between the two qubits.
+
+Add an AI Explain button that explains the result in simple language.
+
+7. Improve the Algorithms page
+
+Keep the existing algorithms:
+
+Bell State
+Grover's Search Algorithm
+Quantum Teleportation
+Deutsch-Jozsa Algorithm
+Shor's Factoring Algorithm
+
+Keep the existing search/filter/progress functionality.
+
+Add clear actions such as:
+
+Learn | Experiment | Open in Lab
+
+Where appropriate, allow the student to launch the algorithm directly in the Quantum Lab.
+
+Do not add unnecessary complicated algorithms.
+
+8. Improve the Quiz
+
+Keep the existing Quantum Knowledge Quiz.
+
+Add some experiment-based questions connected to the Quantum Lab.
+
+Example:
+
+“If the Hadamard gate is removed from this Bell State circuit, what change would you expect?”
+
+Allow the student to answer and then provide a simple explanation.
+
+Keep the existing quiz scoring and progress system.
+
+9. Improve Progress Analytics
+
+Keep all existing progress features.
+
+Add useful experiment-related statistics such as:
+
+Experiments completed
+Circuits modified
+What-If experiments
+VR experiments
+Algorithms explored
+Concepts mastered
+
+Keep the existing progress charts and adaptive learning recommendation.
+
+10. AI Quantum Tutor
+
+Keep the existing AI Quantum Tutor.
+
+Make it useful throughout the platform.
+
+It should be able to explain:
+
+What a gate does
+Why the measurement changed
+Why a circuit produced a particular result
+What happens when a gate is changed
+Basic quantum concepts
+Algorithm steps
+Quiz answers
+
+Keep explanations beginner-friendly and avoid unnecessarily advanced mathematical explanations.
+
+11. Connect everything together
+
+The important part is that these should feel like one platform, not separate pages.
+
+The flow should be:
+
+Learn an algorithm
+↓
+Open Quantum Lab
+↓
+Build/modify the circuit
+↓
+Simulate
+↓
+View probabilities/state/Bloch sphere
+↓
+Ask AI why
+↓
+Try a What-If experiment
+↓
+Open the same experiment in 3D/VR
+↓
+Take a challenge/quiz
+↓
+Track progress
+
+12. Very important implementation rules
+Do not rebuild the website from scratch.
+Do not remove existing features.
+Do not replace the existing design with a completely different design.
+Preserve the existing dark QuantumLearn visual style.
+Preserve the sidebar and navigation structure unless a small change is necessary for responsiveness.
+Reuse the existing quantum simulator wherever possible.
+Do not create fake duplicate pages when an existing page can be enhanced.
+Do not use static results where the existing simulator can provide actual results.
+Keep the application functional.
+Avoid unnecessary dependencies.
+Make the interface responsive at desktop, tablet, and mobile sizes.
+Make sure there is no horizontal overflow.
+Make sure the website looks good at 100% browser zoom.
+Ensure all existing routes continue working.
+After making changes, check all pages for broken layouts, missing components, and console errors.
+
+Priority order:
+
+1. Responsive layout and screen-width issue
+
+2. Quantum Lab improvements
+
+3. What-If experiment
+
+4. VR/3D Lab
+
+5. Connect AI Tutor, Quiz and Progress
+
+6. Final responsive testing and bug fixing
+
+Do not change everything at once if it risks breaking the existing application. Implement the improvements while preserving the current working QuantumLearn prototype.
+
+This is the version I would use rather than giving Bolt several unrelated prompts. Most importantly, it tells Bolt not to rebuild your existing site, because your current QuantumLearn already has a lot of the required functionality

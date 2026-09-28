@@ -131,7 +131,7 @@ export const Algorithms = () => {
                   />
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <button
                     type="button"
                     onClick={() => navigate(`/algorithms/${algo.id}`)}
@@ -143,14 +143,25 @@ export const Algorithms = () => {
                   </button>
 
                   {algo.presetId && (
-                    <button
-                      type="button"
-                      onClick={() => navigate(`/lab?algo=${algo.presetId}`)}
-                      className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-all"
-                      title="Open directly in Quantum Lab"
-                    >
-                      <FlaskConical className="w-4 h-4 text-cyan-400" />
-                    </button>
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => navigate(`/lab?algo=${algo.presetId}`)}
+                        className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 border border-purple-500/30 text-xs font-bold transition-all"
+                      >
+                        <Sparkles className="w-3.5 h-3.5" />
+                        Experiment
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => navigate(`/lab?algo=${algo.presetId}`)}
+                        className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-all"
+                        title="Open directly in Quantum Lab"
+                        aria-label="Open directly in Quantum Lab"
+                      >
+                        <FlaskConical className="w-4 h-4 text-cyan-400" />
+                      </button>
+                    </>
                   )}
                 </div>
               </div>

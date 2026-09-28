@@ -58,7 +58,8 @@ export const Quiz = () => {
     } else {
       // Quiz finished
       setIsCompleted(true);
-      const finalScorePct = Math.round(((score + (selectedOption === currentQ.correctAnswer ? 0 : 0)) / QUIZ_QUESTIONS.length) * 100);
+      const finalScore = score + (selectedOption === currentQ.correctAnswer ? 1 : 0);
+      const finalScorePct = Math.round((finalScore / QUIZ_QUESTIONS.length) * 100);
       try {
         localStorage.setItem('quantumlearn_quiz_score', finalScorePct.toString());
         localStorage.setItem('quantumlearn_quiz_completed', 'true');
@@ -79,7 +80,7 @@ export const Quiz = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8 pb-20">
+    <div className="w-full space-y-8 pb-20">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
         <div>
